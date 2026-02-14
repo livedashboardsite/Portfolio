@@ -1,941 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prathamesh Thakur | Creative Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prathamesh Thakur · Creative Developer</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    <!-- Google Fonts & custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-}
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
 
-/* Optimized glass morphism */
-.glass-card {
-    background: white;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    opacity: 0;
-    transform: translateY(0);
-    will-change: transform, opacity;
-}
+        /* glass morphism cards */
+        .glass-card {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+            opacity: 0;
+            transform: translateY(0);
+            will-change: transform, opacity;
+        }
 
-.glass-card.visible {
-    opacity: 1;
-    animation: fadeInUp 0.4s ease-out forwards;
-}
+        .glass-card.visible {
+            opacity: 1;
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
 
-.glass-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
-}
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
 
-/* Section titles with gradient */
-.section-title {
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+        .section-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.section-title i {
-    font-size: 1.2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+        .section-title i {
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-/* Profile image styling */
-.profile-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 30px;
-    border: 4px solid white;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-    transition: transform 0.2s ease;
-    will-change: transform;
-}
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            transition: transform 0.2s ease;
+            will-change: transform;
+        }
 
-.profile-img:hover {
-    transform: scale(1.03);
-}
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
 
-/* Link styling */
-.social-link {
-    color: #4a5568;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: #f0f2f5;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    display: inline-block;
-}
+        .social-link {
+            color: #4a5568;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #f0f2f5;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
 
-.social-link:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    transform: translateY(-1px);
-}
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-1px);
+        }
 
-/* Contact info styling */
-.contact-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-.contact-info:last-child {
-    border-bottom: none;
-}
+        .contact-info:last-child {
+            border-bottom: none;
+        }
 
-.contact-icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #667eea;
-}
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+        }
 
-.contact-text {
-    color: #4a5568;
-    font-size: 0.95rem;
-    word-break: break-all;
-}
+        .contact-text {
+            color: #4a5568;
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
 
-.contact-text a {
-    color: #4a5568;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
+        .contact-text a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
 
-.contact-text a:hover {
-    color: #667eea;
-}
+        .contact-text a:hover {
+            color: #667eea;
+        }
 
-/* List items with custom bullets */
-.custom-list {
-    list-style: none;
-    padding: 0;
-}
+        .custom-list {
+            list-style: none;
+            padding: 0;
+        }
 
-.custom-list li {
-    padding: 8px 0;
-    padding-left: 24px;
-    position: relative;
-    color: #4a5568;
-    font-size: 0.95rem;
-}
+        .custom-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
 
-.custom-list li:before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: #667eea;
-    font-weight: bold;
-}
+        .custom-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
 
-/* Experience items */
-.exp-item {
-    padding: 1rem;
-    border-radius: 16px;
-    background: #f8f9ff;
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease, background 0.2s ease;
-    will-change: transform;
-}
+        .exp-item {
+            padding: 1rem;
+            border-radius: 16px;
+            background: #f8f9ff;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+            will-change: transform;
+        }
 
-.exp-item:hover {
-    background: #edf2f9;
-    transform: translateX(3px);
-}
+        .exp-item:hover {
+            background: #edf2f9;
+            transform: translateX(3px);
+        }
 
-.exp-title {
-    font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
+        .exp-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
 
-.exp-subtitle {
-    color: #667eea;
-    font-size: 0.9rem;
-    margin-bottom: 0.75rem;
-}
+        .exp-subtitle {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
 
-/* Tech stack tags */
-.tech-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin: 0 4px 4px 0;
-    transition: transform 0.15s ease;
-    will-change: transform;
-}
+        .tech-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0 4px 4px 0;
+            transition: transform 0.15s ease;
+            will-change: transform;
+        }
 
-.tech-tag:hover {
-    transform: scale(1.03);
-}
+        .tech-tag:hover {
+            transform: scale(1.03);
+        }
 
-/* Project cards */
-.project-item {
-    padding: 1rem;
-    border-radius: 16px;
-    background: #f8f9ff;
-    margin-bottom: 1rem;
-    border-left: 3px solid #667eea;
-    transition: background 0.2s ease, border-left-width 0.2s ease;
-}
+        .project-item {
+            padding: 1rem;
+            border-radius: 16px;
+            background: #f8f9ff;
+            margin-bottom: 1rem;
+            border-left: 3px solid #667eea;
+            transition: background 0.2s ease, border-left-width 0.2s ease;
+        }
 
-.project-item:hover {
-    background: #edf2f9;
-    border-left-width: 6px;
-}
+        .project-item:hover {
+            background: #edf2f9;
+            border-left-width: 6px;
+        }
 
-/* Sport tag styles */
-.sport-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    width: 100%;
-}
+        .sport-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
 
-.sport-tag.badminton {
-    background: #fff7ed;
-    color: #9a3412;
-    border: 1px solid #fed7aa;
-}
+        .sport-tag.badminton {
+            background: #fff7ed;
+            color: #9a3412;
+            border: 1px solid #fed7aa;
+        }
 
-.sport-tag.football {
-    background: #f0fdf4;
-    color: #166534;
-    border: 1px solid #bbf7d0;
-}
+        .sport-tag.football {
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
 
-.sport-tag.tt {
-    background: #eff6ff;
-    color: #1e40af;
-    border: 1px solid #bfdbfe;
-}
+        .sport-tag.tt {
+            background: #eff6ff;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
 
-.sport-tag.basketball {
-    background: #faf5ff;
-    color: #6b21a8;
-    border: 1px solid #e9d5ff;
-}
+        .sport-tag.basketball {
+            background: #faf5ff;
+            color: #6b21a8;
+            border: 1px solid #e9d5ff;
+        }
 
-.sport-tag.afs {
-    background: #ecfdf5;
-    color: #065f46;
-    border: 1px solid #a7f3d0;
-}
+        .sport-tag.afs {
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
 
-.sport-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+        .sport-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
-/* Social media mini badges */
-.social-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    background: #f0f2f5;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: #4a5568;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    cursor: pointer;
-}
+        .social-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #f0f2f5;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #4a5568;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-.social-badge:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    transform: translateY(-2px);
-}
+        .social-badge:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
 
-.social-badge i {
-    font-size: 0.9rem;
-}
+        .availability-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #48bb78;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
 
-/* Availability badge */
-.availability-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    background: #48bb78;
-    color: white;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
 
-/* Footer */
-.footer {
-    text-align: center;
-    color: white;
-    margin-top: 3rem;
-    padding: 1rem;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-/* Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .page-wrapper {
+            opacity: 0;
+            animation: pageFadeIn 0.3s ease-out forwards;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-    
-    .profile-img {
-        width: 150px;
-        height: 150px;
-    }
-}
+        @keyframes pageFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
 
-.page-wrapper {
-    opacity: 0;
-    animation: pageFadeIn 0.3s ease-out forwards;
-}
+        .cursor-pointer {
+            cursor: pointer;
+        }
 
-@keyframes pageFadeIn {
-    to {
-        opacity: 1;
-    }
-}
+        .toast-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            animation: toastFade 2s ease;
+            opacity: 0;
+        }
 
-.cursor-pointer {
-    cursor: pointer;
-}
+        @keyframes toastFade {
+            0% { opacity: 0; bottom: 0; }
+            10% { opacity: 1; bottom: 20px; }
+            90% { opacity: 1; bottom: 20px; }
+            100% { opacity: 0; bottom: 0; }
+        }
 
-/* Toast notification for copy */
-.toast-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    z-index: 1000;
-    animation: toastFade 2s ease;
-    opacity: 0;
-}
-
-@keyframes toastFade {
-    0% { opacity: 0; bottom: 0; }
-    10% { opacity: 1; bottom: 20px; }
-    90% { opacity: 1; bottom: 20px; }
-    100% { opacity: 0; bottom: 0; }
-}
-
-
-
-</style>
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 <div class="page-wrapper">
+    <div class="max-w-6xl mx-auto">
 
-<div class="max-w-6xl mx-auto">
-
-<!-- HERO SECTION -->
-<section class="glass-card p-8 md:p-12 mb-8 visible">
-    <div class="flex flex-col md:flex-row items-center gap-10">
-        <div class="relative">
-            <img src="https://i.ibb.co/601HjzgT/Screenshot-2025-09-23-171133.png" 
-                 alt="Prathamesh Thakur"
-                 class="profile-img"
-                 onerror="this.src='https://via.placeholder.com/180x180/667eea/ffffff?text=PT'"
-                 loading="lazy">
-            <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
-                <i class="fas fa-code text-white text-sm"></i>
-            </div>
-        </div>
-
-        <div class="flex-1 text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-bold mb-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                Prathamesh Thakur
-            </h1>
-            
-            <p class="text-lg text-gray-600 mb-4">
-                Creative Tech Builder • Web Developer • Unity Game Developer
-            </p>
-            
-            <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                <!-- GitHub - Replace with your actual GitHub username -->
-                <a href="https://github.com/livedashboardsite" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="social-link">
-                    <i class="fab fa-github mr-2"></i>GitHub
-                </a>
-                
-                <!-- LinkedIn - Replace with your actual LinkedIn URL -->
-                <a href="www.linkedin.com/in/prathamesh-thakur-5728162b2" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="social-link">
-                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
-                </a>
-                
-                <!-- Email - Working email link -->
-                <a href="mailto:prathameshthakur539@gmail.com" 
-                   class="social-link">
-                    <i class="fas fa-envelope mr-2"></i>Email
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- MAIN GRID -->
-<div class="grid md:grid-cols-3 gap-6">
-
-    <!-- LEFT COLUMN -->
-    <div class="space-y-6">
-        
-        <!-- 1. ACHIEVEMENTS & ACTIVITIES Card -->
-        <div class="glass-card p-6 visible">
-            <h2 class="section-title">
-                <i class="fas fa-trophy"></i> Achievements & Activities
-            </h2>
-            
-            <!-- Technical Achievements -->
-            <div class="mb-6">
-                <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <i class="fas fa-microchip text-purple-500"></i> Technical Achievements
-                </p>
-                <div class="space-y-3">
-                    <!-- AWS School Team -->
-                    <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 hover:shadow-md transition-shadow">
-                        <div class="flex items-start gap-3">
-                            <div class="bg-purple-500 text-white rounded-lg p-2 text-sm">
-                                <i class="fab fa-aws"></i>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">AWS School Team Member</p>
-                                <p class="text-sm text-gray-600">Created Expenses Tracker Project</p>
-                                <p class="text-xs text-purple-600 font-medium mt-1">🏆 Ranked #97 among all schools</p>
-                            </div>
-                        </div>
+        <!-- HERO SECTION with CORRECTED LINKS -->
+        <section class="glass-card p-8 md:p-12 mb-8 visible">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="relative">
+                    <img src="https://i.ibb.co/601HjzgT/Screenshot-2025-09-23-171133.png"
+                         alt="Prathamesh Thakur"
+                         class="profile-img"
+                         onerror="this.src='https://via.placeholder.com/180x180/667eea/ffffff?text=PT'"
+                         loading="lazy">
+                    <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                        <i class="fas fa-code text-white text-sm"></i>
                     </div>
-                    
-                    <!-- Smart Gate System Award -->
-                    <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-3 hover:shadow-md transition-shadow">
-                        <div class="flex items-start gap-3">
-                            <div class="bg-yellow-500 text-white rounded-lg p-2">
-                                <i class="fas fa-trophy text-sm"></i>
+                </div>
+
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Prathamesh Thakur
+                    </h1>
+
+                    <p class="text-lg text-gray-600 mb-4">
+                        Creative Tech Builder • Web Developer • Unity Game Developer
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <!-- GITHUB – corrected link -->
+                        <a href="https://github.com/livedashboardsite"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="social-link">
+                            <i class="fab fa-github mr-2"></i>GitHub
+                        </a>
+
+                        <!-- LINKEDIN – corrected link (added https://) -->
+                        <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="social-link">
+                            <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                        </a>
+
+                        <!-- Email unchanged -->
+                        <a href="mailto:prathameshthakur539@gmail.com"
+                           class="social-link">
+                            <i class="fas fa-envelope mr-2"></i>Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN GRID (rest of the content identical, only links updated) -->
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- LEFT COLUMN -->
+            <div class="space-y-6">
+                <!-- 1. ACHIEVEMENTS & ACTIVITIES Card -->
+                <div class="glass-card p-6 visible">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements & Activities</h2>
+                    <!-- Technical Achievements -->
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-microchip text-purple-500"></i> Technical Achievements</p>
+                        <div class="space-y-3">
+                            <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 hover:shadow-md">
+                                <div class="flex items-start gap-3">
+                                    <div class="bg-purple-500 text-white rounded-lg p-2 text-sm"><i class="fab fa-aws"></i></div>
+                                    <div><p class="font-semibold text-gray-800">AWS School Team Member</p><p class="text-sm text-gray-600">Created Expenses Tracker Project</p><p class="text-xs text-purple-600 font-medium mt-1">🏆 Ranked #97 among all schools</p></div>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Smart Gate System Project</p>
-                                <p class="text-sm text-gray-600">Secured Back-to-Back 1st Prize</p>
-                                <div class="flex flex-wrap gap-1 mt-1">
-                                    <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 School Level</span>
-                                    <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 Screening Level</span>
-                                    <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 District Level (Ratnagiri)</span>
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-3 hover:shadow-md">
+                                <div class="flex items-start gap-3">
+                                    <div class="bg-yellow-500 text-white rounded-lg p-2"><i class="fas fa-trophy text-sm"></i></div>
+                                    <div><p class="font-semibold text-gray-800">Smart Gate System Project</p><p class="text-sm text-gray-600">Secured Back-to-Back 1st Prize</p><div class="flex flex-wrap gap-1 mt-1"><span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 School Level</span><span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 Screening Level</span><span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 District Level (Ratnagiri)</span></div></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Sports Achievements -->
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-medal text-yellow-500"></i> Sports Achievements</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div class="sport-tag badminton"><span class="mr-2">🏸</span> Badminton - Player Runner Up</div>
+                            <div class="sport-tag football"><span class="mr-2">⚽</span> Football - District Level</div>
+                            <div class="sport-tag tt"><span class="mr-2">🏓</span> Table Tennis - District Level</div>
+                            <div class="sport-tag basketball"><span class="mr-2">🏀</span> Basketball - District Level</div>
+                        </div>
+                    </div>
+                    <!-- International Exchange -->
+                    <div><p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-globe-asia text-blue-500"></i> International Exposure</p><div class="sport-tag afs"><i class="fas fa-globe-americas mr-2"></i>AFS (American Field Service) Member 2024-25</div></div>
                 </div>
-            </div>
-            
-            <!-- Sports Achievements -->
-            <div class="mb-6">
-                <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <i class="fas fa-medal text-yellow-500"></i> Sports Achievements
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <div class="sport-tag badminton">
-                        <span class="mr-2">🏸</span> Badminton - Player Runner Up
-                    </div>
-                    <div class="sport-tag football">
-                        <span class="mr-2">⚽</span> Football - District Level
-                    </div>
-                    <div class="sport-tag tt">
-                        <span class="mr-2">🏓</span> Table Tennis - District Level
-                    </div>
-                    <div class="sport-tag basketball">
-                        <span class="mr-2">🏀</span> Basketball - District Level
-                    </div>
-                </div>
-            </div>
-            
-            <!-- International Exchange -->
-            <div>
-                <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <i class="fas fa-globe-asia text-blue-500"></i> International Exposure
-                </p>
-                <div class="sport-tag afs">
-                    <i class="fas fa-globe-americas mr-2"></i>
-                    AFS (American Field Service) Member 2024-25
-                </div>
-            </div>
-        </div>
 
-        <!-- 2. TECH STACK Card -->
-        <div class="glass-card p-6 visible">
-            <h2 class="section-title">
-                <i class="fas fa-code"></i> Tech Stack
-            </h2>
-            <div class="space-y-4">
-                <div>
-                    <p class="text-sm font-semibold text-gray-700 mb-2">Frontend</p>
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Tailwind</span>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-gray-700 mb-2">Backend</p>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQL</span>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-gray-700 mb-2">Game Dev</p>
-                    <span class="tech-tag">Unity</span>
-                    <span class="tech-tag">C#</span>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-gray-700 mb-2">Tools</p>
-                    <span class="tech-tag">Git</span>
-                    <span class="tech-tag">Canva</span>
-                    <span class="tech-tag">Photoshop</span>
-                </div>
-                
-                <!-- Productivity Tools Section -->
-                <div class="mt-4 pt-2 border-t border-gray-100">
-                    <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                        <i class="fas fa-file-alt text-blue-500"></i> Productivity Tools
-                    </p>
-                    
-                    <!-- Microsoft Office -->
-                    <div class="mb-3">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-medium text-gray-600 flex items-center gap-1">
-                                <i class="fab fa-microsoft text-blue-600"></i> Microsoft Office
-                            </span>
-                            <span class="text-xs font-medium text-blue-600">Advanced</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-1.5">
-                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-1.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <div class="flex flex-wrap gap-1 mt-2">
-                            <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Word</span>
-                            <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Excel</span>
-                            <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">PowerPoint</span>
-                            <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Outlook</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Apache Office / OpenOffice -->
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-medium text-gray-600 flex items-center gap-1">
-                                <i class="fas fa-file-alt text-orange-600"></i> Apache OpenOffice
-                            </span>
-                            <span class="text-xs font-medium text-orange-600">Intermediate</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-1.5">
-                            <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-1.5 rounded-full" style="width: 75%"></div>
-                        </div>
-                        <div class="flex flex-wrap gap-1 mt-2">
-                            <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Writer</span>
-                            <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Calc</span>
-                            <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Impress</span>
+                <!-- 2. TECH STACK Card -->
+                <div class="glass-card p-6 visible">
+                    <h2 class="section-title"><i class="fas fa-code"></i> Tech Stack</h2>
+                    <div class="space-y-4">
+                        <div><p class="text-sm font-semibold text-gray-700 mb-2">Frontend</p><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Tailwind</span></div>
+                        <div><p class="text-sm font-semibold text-gray-700 mb-2">Backend</p><span class="tech-tag">Python</span><span class="tech-tag">SQL</span></div>
+                        <div><p class="text-sm font-semibold text-gray-700 mb-2">Game Dev</p><span class="tech-tag">Unity</span><span class="tech-tag">C#</span></div>
+                        <div><p class="text-sm font-semibold text-gray-700 mb-2">Tools</p><span class="tech-tag">Git</span><span class="tech-tag">Canva</span><span class="tech-tag">Photoshop</span></div>
+                        <!-- Productivity Tools -->
+                        <div class="mt-4 pt-2 border-t border-gray-100">
+                            <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-file-alt text-blue-500"></i> Productivity Tools</p>
+                            <div class="mb-3">
+                                <div class="flex justify-between items-center mb-1"><span class="text-xs font-medium text-gray-600 flex items-center gap-1"><i class="fab fa-microsoft text-blue-600"></i> Microsoft Office</span><span class="text-xs font-medium text-blue-600">Advanced</span></div>
+                                <div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gradient-to-r from-blue-500 to-blue-600 h-1.5 rounded-full" style="width:85%"></div></div>
+                                <div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Word</span><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Excel</span><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">PowerPoint</span><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Outlook</span></div>
+                            </div>
+                            <div><div class="flex justify-between items-center mb-1"><span class="text-xs font-medium text-gray-600 flex items-center gap-1"><i class="fas fa-file-alt text-orange-600"></i> Apache OpenOffice</span><span class="text-xs font-medium text-orange-600">Intermediate</span></div><div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gradient-to-r from-orange-500 to-orange-600 h-1.5 rounded-full" style="width:75%"></div></div><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Writer</span><span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Calc</span><span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Impress</span></div></div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- 3. LANGUAGES Card -->
-        <div class="glass-card p-6 visible">
-            <h2 class="section-title">
-                <i class="fas fa-language"></i> Languages
-            </h2>
-            <ul class="custom-list">
-                <li>English <span class="text-gray-400 text-sm">(Professional)</span></li>
-                <li>Hindi <span class="text-gray-400 text-sm">(Native)</span></li>
-                <li>Marathi <span class="text-gray-400 text-sm">(Native)</span></li>
-            </ul>
-        </div>
+                <!-- 3. LANGUAGES Card -->
+                <div class="glass-card p-6 visible"><h2 class="section-title"><i class="fas fa-language"></i> Languages</h2><ul class="custom-list"><li>English <span class="text-gray-400 text-sm">(Professional)</span></li><li>Hindi <span class="text-gray-400 text-sm">(Native)</span></li><li>Marathi <span class="text-gray-400 text-sm">(Native)</span></li></ul></div>
 
-        <!-- 4. EDUCATION Card (Moved to left column) -->
-        <div class="glass-card p-6 visible">
-            <h2 class="section-title">
-                <i class="fas fa-graduation-cap"></i> Education
-            </h2>
-            <ul class="custom-list">
-                <li><strong>Jindal Vidya Mandir</strong> – Class 10 (83.2%)</li>
-                <li><strong>Science Stream</strong> – Class 12 PCM </li>
-            </ul>
-        </div>
+                <!-- 4. EDUCATION Card -->
+                <div class="glass-card p-6 visible"><h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2><ul class="custom-list"><li><strong>Jindal Vidya Mandir</strong> – Class 10 (83.2%)</li><li><strong>Science Stream</strong> – Class 12 PCM </li></ul></div>
 
-        <!-- 5. CONTACT Card -->
-        <div class="glass-card p-6 visible">
-            <h2 class="section-title">
-                <i class="fas fa-address-card"></i> Contact
-            </h2>
-            
-            <!-- Location -->
-            <div class="contact-info">
-                <div class="contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-text">Ratnagiri, Maharashtra</div>
-            </div>
-            
-            <!-- Email (clickable) -->
-            <div class="contact-info">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-text">
-                    <a href="mailto:prathameshthakur539@gmail.com">prathameshthakur539@gmail.com</a>
-                </div>
-            </div>
-            
-            <!-- Phone (clickable) -->
-            <div class="contact-info">
-                <div class="contact-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <div class="contact-text">
-                    <a href="tel:+917745070380">+91 7745070380</a>
-                </div>
-            </div>
-            
-            <!-- Telegram (clickable) -->
-            <div class="contact-info">
-                <div class="contact-icon">
-                    <i class="fab fa-telegram"></i>
-                </div>
-                <div class="contact-text">
-                    <a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer">@prathamesh_thakur_emotion</a>
-                </div>
-            </div>
-            
-            <!-- Discord (copy on click) -->
-            <div class="contact-info cursor-pointer" onclick="copyToClipboard('pratham.emotion')" title="Click to copy Discord username">
-                <div class="contact-icon">
-                    <i class="fab fa-discord"></i>
-                </div>
-                <div class="contact-text">pratham.emotion <span class="text-xs text-gray-400 ml-2">(click to copy)</span></div>
-            </div>
-            
-            <!-- Instagram (clickable) -->
-            <div class="contact-info">
-                <div class="contact-icon">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div class="contact-text">
-                    <a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer">@prathamesh_thakur_emotion</a>
-                </div>
-            </div>
-            
-            <!-- Availability Badge -->
-            <div class="mt-4 pt-2">
-                <span class="availability-badge">
-                    <i class="fas fa-clock mr-1"></i> Available 3PM – 10PM
-                </span>
-            </div>
-            
-            <!-- Social Mini Badges (clickable) -->
-            <div class="flex flex-wrap gap-2 mt-4">
-                <a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer" class="social-badge">
-                    <i class="fab fa-telegram"></i> prathamesh_thakur_emotion
-                </a>
-                <span onclick="copyToClipboard('pratham.emotion')" class="social-badge cursor-pointer" title="Click to copy Discord">
-                    <i class="fab fa-discord"></i> pratham.emotion
-                </span>
-                <a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer" class="social-badge">
-                    <i class="fab fa-instagram"></i> prathamesh_thakur_emotion
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="md:col-span-2 space-y-6">
-        <!-- Profile Card -->
-        <div class="glass-card p-8 visible">
-            <h2 class="section-title">
-                <i class="fas fa-user"></i> Profile
-            </h2>
-            <p class="text-gray-600 leading-relaxed">
-                Class 12 science student passionate about modern web development,
-                game systems, and UI design. Experienced in internship-based website creation,
-                freelance creative production, and Unity-based multiplayer development.
-                Award-winning project developer with multiple district-level achievements.
-            </p>
-        </div>
-
-        <!-- Experience Card -->
-        <div class="glass-card p-8 visible">
-            <h2 class="section-title">
-                <i class="fas fa-briefcase"></i> Experience
-            </h2>
-            
-            <div class="exp-item">
-                <div class="exp-title">Fungro Teenlancher</div>
-                <div class="exp-subtitle">2 Months · Web Development</div>
-                <ul class="custom-list mt-2">
-                    <li>Website UI development and optimization</li>
-                    <li>Research & documentation structuring</li>
-                </ul>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-title">YouTube Creator – Gaurav Suthar</div>
-                <div class="exp-subtitle">1 Month · Content Creation</div>
-                <ul class="custom-list mt-2">
-                    <li>Handwritten digital notes creation</li>
-                </ul>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-title">Rahul Kadam – Voice Over Artist</div>
-                <div class="exp-subtitle">Part-time · Audio/Video</div>
-                <ul class="custom-list mt-2">
-                    <li>Audio mixing & video editing</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- NEW: STARTUP EXPERIENCE Card -->
-        <div class="glass-card p-8 visible">
-            <h2 class="section-title">
-                <i class="fas fa-rocket"></i> Startup Experience
-            </h2>
-            
-            <div class="exp-item">
-                <div class="exp-title">SWARLY – UI/UX Designer (Founding Team)</div>
-                <div class="exp-subtitle">2026–Present · Music Discovery Platform</div>
-                <ul class="custom-list mt-2">
-                    <li>Designing interactive user journeys and UI concepts for a regional-first Indian music discovery platform</li>
-                    <li>Contributing to product ideation and early-stage validation discussions</li>
-                    <li>Collaborating with frontend, backend, and strategy members</li>
-                    <li>Focusing on animation-driven engagement and discovery flow design</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Projects Card -->
-        <div class="glass-card p-8 visible">
-            <h2 class="section-title">
-                <i class="fas fa-folder-open"></i> Projects
-            </h2>
-
-            <div class="project-item">
-                <strong class="text-gray-800">Smart Gate System (Version 2.0 – In Development)</strong>
-                <p class="text-gray-600 text-sm mt-1">Multi-award winning project - 1st prize at School, Screening, and District Level in Ratnagiri.</p>
-            </div>
-
-            <div class="project-item">
-                <strong class="text-gray-800">Vehicle Dashboard System</strong>
-                <p class="text-gray-600 text-sm mt-1">Python-based vehicle entry logging with JSON & Excel export.</p>
-            </div>
-
-            <div class="project-item">
-                <strong class="text-gray-800">3D Cricket Game (Ongoing)</strong>
-                <p class="text-gray-600 text-sm mt-1">Multiplayer Unity project (C# + Python) with gyroscope support and optimized for 2GB RAM devices.</p>
-            </div>
-
-            <div class="project-item">
-                <strong class="text-gray-800">Event Landing Pages / Event Video Edits</strong>
-                <p class="text-gray-600 text-sm mt-1">Editing out teaser, invitation cards for school events since 2020</p>
-                <p class="text-gray-600 text-sm mt-1">Responsive HTML/CSS Council Members Revealing design with modern animations.</p>
-            </div>
-
-            <div class="project-item">
-                <strong class="text-gray-800">AWS Project - Expenses Tracker</strong>
-                <p class="text-gray-600 text-sm mt-1">Created as part of AWS School Team - Ranked #97 among all schools.</p>
-            </div>
-        </div>
-
-        <!-- LEADERSHIP & POSITIONS OF RESPONSIBILITY Card -->
-        <div class="glass-card p-8 visible">
-            <h2 class="section-title">
-                <i class="fas fa-crown text-blue-500"></i> Leadership & Positions of Responsibility
-            </h2>
-            
-            <!-- House Vice Captain -->
-            <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500 transition-all">
-                <div class="flex items-start gap-3">
-                    <div class="bg-blue-100 text-blue-600 rounded-lg p-3">
-                        <i class="fas fa-users fa-fw"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="exp-title">House Vice Captain (2025–26)</div>
-                        <div class="exp-subtitle">Jindal Vidya Mandir, Ratnagiri</div>
-                        <ul class="custom-list mt-1">
-                            <li>Led inter-house coordination and student engagement activities</li>
-                            <li>Assisted in organizing academic and cultural events</li>
-                            <li>Acted as a communication bridge between faculty and students</li>
-                        </ul>
+                <!-- 5. CONTACT Card (social badges also contain the correct links) -->
+                <div class="glass-card p-6 visible">
+                    <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
+                    <div class="contact-info"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text">Ratnagiri, Maharashtra</div></div>
+                    <div class="contact-info"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><a href="mailto:prathameshthakur539@gmail.com">prathameshthakur539@gmail.com</a></div></div>
+                    <div class="contact-info"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div class="contact-text"><a href="tel:+917745070380">+91 7745070380</a></div></div>
+                    <div class="contact-info"><div class="contact-icon"><i class="fab fa-telegram"></i></div><div class="contact-text"><a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer">@prathamesh_thakur_emotion</a></div></div>
+                    <div class="contact-info cursor-pointer" onclick="copyToClipboard('pratham.emotion')" title="Click to copy Discord username"><div class="contact-icon"><i class="fab fa-discord"></i></div><div class="contact-text">pratham.emotion <span class="text-xs text-gray-400 ml-2">(click to copy)</span></div></div>
+                    <div class="contact-info"><div class="contact-icon"><i class="fab fa-instagram"></i></div><div class="contact-text"><a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer">@prathamesh_thakur_emotion</a></div></div>
+                    <div class="mt-4 pt-2"><span class="availability-badge"><i class="fas fa-clock mr-1"></i> Available 3PM – 10PM</span></div>
+                    <!-- mini badges with correct links -->
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer" class="social-badge"><i class="fab fa-telegram"></i> prathamesh_thakur_emotion</a>
+                        <span onclick="copyToClipboard('pratham.emotion')" class="social-badge cursor-pointer" title="Click to copy Discord"><i class="fab fa-discord"></i> pratham.emotion</span>
+                        <a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer" class="social-badge"><i class="fab fa-instagram"></i> prathamesh_thakur_emotion</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Vice Discipline Minister -->
-            <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500 transition-all">
-                <div class="flex items-start gap-3">
-                    <div class="bg-blue-100 text-blue-600 rounded-lg p-3">
-                        <i class="fas fa-gavel fa-fw"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="exp-title">Vice Discipline Minister (2022–23)</div>
-                        <div class="exp-subtitle">Jindal Vidya Mandir, Ratnagiri</div>
-                        <ul class="custom-list mt-1">
-                            <li>Maintained discipline standards across campus</li>
-                            <li>Coordinated with staff during school events</li>
-                            <li>Developed leadership and accountability skills</li>
-                        </ul>
-                    </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="md:col-span-2 space-y-6">
+                <!-- Profile Card -->
+                <div class="glass-card p-8 visible"><h2 class="section-title"><i class="fas fa-user"></i> Profile</h2><p class="text-gray-600 leading-relaxed">Class 12 science student passionate about modern web development, game systems, and UI design. Experienced in internship-based website creation, freelance creative production, and Unity-based multiplayer development. Award-winning project developer with multiple district-level achievements.</p></div>
+
+                <!-- Experience Card -->
+                <div class="glass-card p-8 visible">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                    <div class="exp-item"><div class="exp-title">Fungro Teenlancher</div><div class="exp-subtitle">2 Months · Web Development</div><ul class="custom-list mt-2"><li>Website UI development and optimization</li><li>Research & documentation structuring</li></ul></div>
+                    <div class="exp-item"><div class="exp-title">YouTube Creator – Gaurav Suthar</div><div class="exp-subtitle">1 Month · Content Creation</div><ul class="custom-list mt-2"><li>Handwritten digital notes creation</li></ul></div>
+                    <div class="exp-item"><div class="exp-title">Rahul Kadam – Voice Over Artist</div><div class="exp-subtitle">Part-time · Audio/Video</div><ul class="custom-list mt-2"><li>Audio mixing & video editing</li></ul></div>
                 </div>
-            </div>
-            
-            <!-- EAGLE Award – Top 5 Finalist -->
-            <div class="exp-item border-l-4 border-yellow-300 hover:border-yellow-500 transition-all">
-                <div class="flex items-start gap-3">
-                    <div class="bg-yellow-100 text-yellow-600 rounded-lg p-3">
-                        <i class="fas fa-award fa-fw"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="exp-title">EAGLE Award – Top 5 Finalist</div>
-                        <div class="exp-subtitle">Jindal Vidya Mandir</div>
-                        <ul class="custom-list mt-1">
-                            <li>Recognized among top 5 students for leadership, conduct, and academic consistency</li>
-                        </ul>
-                    </div>
+
+                <!-- STARTUP EXPERIENCE Card -->
+                <div class="glass-card p-8 visible"><h2 class="section-title"><i class="fas fa-rocket"></i> Startup Experience</h2><div class="exp-item"><div class="exp-title">SWARLY – UI/UX Designer (Founding Team)</div><div class="exp-subtitle">2026–Present · Music Discovery Platform</div><ul class="custom-list mt-2"><li>Designing interactive user journeys and UI concepts for a regional-first Indian music discovery platform</li><li>Contributing to product ideation and early-stage validation discussions</li><li>Collaborating with frontend, backend, and strategy members</li><li>Focusing on animation-driven engagement and discovery flow design</li></ul></div></div>
+
+                <!-- Projects Card -->
+                <div class="glass-card p-8 visible">
+                    <h2 class="section-title"><i class="fas fa-folder-open"></i> Projects</h2>
+                    <div class="project-item"><strong class="text-gray-800">Smart Gate System (Version 2.0 – In Development)</strong><p class="text-gray-600 text-sm mt-1">Multi-award winning project - 1st prize at School, Screening, and District Level in Ratnagiri.</p></div>
+                    <div class="project-item"><strong class="text-gray-800">Vehicle Dashboard System</strong><p class="text-gray-600 text-sm mt-1">Python-based vehicle entry logging with JSON & Excel export.</p></div>
+                    <div class="project-item"><strong class="text-gray-800">3D Cricket Game (Ongoing)</strong><p class="text-gray-600 text-sm mt-1">Multiplayer Unity project (C# + Python) with gyroscope support and optimized for 2GB RAM devices.</p></div>
+                    <div class="project-item"><strong class="text-gray-800">Event Landing Pages / Event Video Edits</strong><p class="text-gray-600 text-sm mt-1">Editing out teaser, invitation cards for school events since 2020</p><p class="text-gray-600 text-sm mt-1">Responsive HTML/CSS Council Members Revealing design with modern animations.</p></div>
+                    <div class="project-item"><strong class="text-gray-800">AWS Project - Expenses Tracker</strong><p class="text-gray-600 text-sm mt-1">Created as part of AWS School Team - Ranked #97 among all schools.</p></div>
                 </div>
-            </div>
-            
-            <!-- Science & Technology Exhibition – Team Leader (2023 & 2024) -->
-            <div class="exp-item border-l-4 border-purple-300 hover:border-purple-500 transition-all">
-                <div class="flex items-start gap-3">
-                    <div class="bg-purple-100 text-purple-600 rounded-lg p-3">
-                        <i class="fas fa-flask fa-fw"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="exp-title">Science & Technology Exhibition – Team Leader</div>
-                        <div class="exp-subtitle">2023 & 2024 · Jindal Vidya Mandir</div>
-                        <ul class="custom-list mt-1">
-                            <li>Led a 4-member team in project development</li>
-                            <li>Delegated tasks strategically based on strengths</li>
-                            <li>Refined and improved project presentation</li>
-                            <li>Secured a strong competitive position</li>
-                        </ul>
-                    </div>
+
+                <!-- LEADERSHIP Card -->
+                <div class="glass-card p-8 visible">
+                    <h2 class="section-title"><i class="fas fa-crown text-blue-500"></i> Leadership & Positions of Responsibility</h2>
+                    <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500"><div class="flex items-start gap-3"><div class="bg-blue-100 text-blue-600 rounded-lg p-3"><i class="fas fa-users fa-fw"></i></div><div class="flex-1"><div class="exp-title">House Vice Captain (2025–26)</div><div class="exp-subtitle">Jindal Vidya Mandir, Ratnagiri</div><ul class="custom-list mt-1"><li>Led inter-house coordination and student engagement activities</li><li>Assisted in organizing academic and cultural events</li><li>Acted as a communication bridge between faculty and students</li></ul></div></div></div>
+                    <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500"><div class="flex items-start gap-3"><div class="bg-blue-100 text-blue-600 rounded-lg p-3"><i class="fas fa-gavel fa-fw"></i></div><div class="flex-1"><div class="exp-title">Vice Discipline Minister (2022–23)</div><div class="exp-subtitle">Jindal Vidya Mandir, Ratnagiri</div><ul class="custom-list mt-1"><li>Maintained discipline standards across campus</li><li>Coordinated with staff during school events</li><li>Developed leadership and accountability skills</li></ul></div></div></div>
+                    <div class="exp-item border-l-4 border-yellow-300 hover:border-yellow-500"><div class="flex items-start gap-3"><div class="bg-yellow-100 text-yellow-600 rounded-lg p-3"><i class="fas fa-award fa-fw"></i></div><div class="flex-1"><div class="exp-title">EAGLE Award – Top 5 Finalist</div><div class="exp-subtitle">Jindal Vidya Mandir</div><ul class="custom-list mt-1"><li>Recognized among top 5 students for leadership, conduct, and academic consistency</li></ul></div></div></div>
+                    <div class="exp-item border-l-4 border-purple-300 hover:border-purple-500"><div class="flex items-start gap-3"><div class="bg-purple-100 text-purple-600 rounded-lg p-3"><i class="fas fa-flask fa-fw"></i></div><div class="flex-1"><div class="exp-title">Science & Technology Exhibition – Team Leader</div><div class="exp-subtitle">2023 & 2024 · Jindal Vidya Mandir</div><ul class="custom-list mt-1"><li>Led a 4-member team in project development</li><li>Delegated tasks strategically based on strengths</li><li>Refined and improved project presentation</li><li>Secured a strong competitive position</li></ul></div></div></div>
                 </div>
             </div>
         </div>
+
+        <!-- INSPIRATIONAL QUOTE CARD (fixed misplaced) -->
+        <div class="glass-card p-6 visible flex items-center justify-center min-h-[240px] mt-6">
+            <div class="text-center">
+                <i class="fas fa-quote-right text-3xl text-gray-200 mb-3"></i>
+                <p class="text-gray-400 italic text-sm leading-relaxed">"Building ideas<br>into reality,<br>one line at a time."</p>
+                <div class="mt-4 text-xs text-gray-300 font-mono">~ Prathamesh</div>
+            </div>
+        </div>
+
+        <footer class="footer">© 2026 Prathamesh Thakur · Built with <i class="fas fa-heart text-red-500"></i> and creativity</footer>
     </div>
 </div>
 
-<footer class="footer">
-    © 2026 Prathamesh Thakur · Built with <i class="fas fa-heart text-red-500"></i> and creativity
-</footer>
-
-</div>
-</div>
-
-<!-- Toast notification element -->
+<!-- Toast element -->
 <div id="toast" class="toast-message" style="display: none;">Copied to clipboard!</div>
 
-<!-- Script for functionality -->
 <script>
-// Copy to clipboard function for Discord
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(function() {
-        // Show toast notification
         const toast = document.getElementById('toast');
         toast.style.display = 'block';
         toast.textContent = 'Discord username copied: ' + text;
-        
-        setTimeout(function() {
-            toast.style.display = 'none';
-        }, 2000);
-    }, function() {
-        // Fallback for older browsers
-        prompt('Copy this Discord username:', text);
-    });
+        setTimeout(function() { toast.style.display = 'none'; }, 2000);
+    }, function() { prompt('Copy this Discord username:', text); });
 }
 
-// Make all cards visible
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.glass-card');
-    cards.forEach(card => {
-        card.classList.add('visible');
-    });
+    document.querySelectorAll('.glass-card').forEach(c => c.classList.add('visible'));
 });
-
-<!-- INSPIRATIONAL QUOTE CARD -->
-<div class="glass-card p-6 visible flex items-center justify-center min-h-[240px]">
-    <div class="text-center">
-        <i class="fas fa-quote-right text-3xl text-gray-200 mb-3"></i>
-        <p class="text-gray-400 italic text-sm leading-relaxed">
-            "Building ideas<br>into reality,<br>one line at a time."
-        </p>
-        <div class="mt-4 text-xs text-gray-300 font-mono">
-            ~ Prathamesh
-        </div>
-    </div>
-</div>
 </script>
 
 </body>
-
 </html>
