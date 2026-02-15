@@ -101,37 +101,7 @@
         color: white;
         transform: translateY(-1px);
     }
-/* MAANG Scratch Card specific styles */
-.group:hover .group-hover\:opacity-0 {
-    opacity: 0;
-}
 
-.transition-all {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
-}
-
-.backdrop-blur-\[2px\] {
-    backdrop-filter: blur(2px);
-}
-
-.rotate-90 {
-    transform: rotate(90deg);
-}
-
-/* Ensure the scratch overlay covers properly */
-.absolute.inset-0 {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-/* Add these if not already present */
-.inline-block {
-    display: inline-block;
-}
     /* Contact info styling */
     .contact-info {
         display: flex;
@@ -644,109 +614,7 @@
           <div class="project-item"><strong class="text-gray-800">Event Landing Pages / Event Video Edits</strong><p class="text-gray-600 text-sm mt-1">Editing out teaser, invitation cards for school events since 2020 · Responsive HTML/CSS Council Members Revealing design with modern animations.</p></div>
           <div class="project-item"><strong class="text-gray-800">AWS Project - Expenses Tracker</strong><p class="text-gray-600 text-sm mt-1">Created as part of AWS School Team - Ranked #97 among all schools.</p></div>
         </div>
-        <!-- MAANG SCRATCH CARD - Interactive Hover/Scratch Effect -->
-        <div class="glass-card p-8 visible relative overflow-hidden group cursor-pointer" 
-             onclick="window.open('https://maang.in/profile/prathamesh.thakur', '_blank')"
-             title="Click to view MAANG profile">
-            
-            <!-- Scratch overlay effect (visible by default, disappears on hover) -->
-            <div class="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-[2px] flex items-center justify-center transition-all duration-500 group-hover:opacity-0 z-10 rounded-3xl">
-                <div class="text-center px-6">
-                    <i class="fas fa-grip-lines text-4xl text-gray-400 mb-3 rotate-90 inline-block"></i>
-                    <p class="text-white font-medium text-lg tracking-wider">SCRATCH TO REVEAL</p>
-                    <p class="text-gray-400 text-sm mt-2">← hover or click →</p>
-                </div>
-            </div>
-            
-            <!-- Original content (hidden under scratch, revealed on hover) -->
-            <div class="relative z-0 transition-opacity duration-500">
-                <h2 class="section-title !mb-4">
-                    <i class="fas fa-code-branch text-orange-500"></i> MAANG Progress
-                </h2>
-                
-                <!-- Main MAANG card content -->
-                <div class="space-y-4">
-                    <!-- Header with logo and rank -->
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
-                                M
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-800 text-lg">MAANG</p>
-                                <p class="text-xs text-gray-500">Coding Profile</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
-                                <i class="fas fa-circle text-[8px] mr-1 text-green-500"></i> Active
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <!-- Stats grid -->
-                    <div class="grid grid-cols-3 gap-3 mt-4">
-                        <div class="bg-indigo-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-bold text-indigo-600">47</p>
-                            <p class="text-xs text-gray-600">Problems</p>
-                        </div>
-                        <div class="bg-purple-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-bold text-purple-600">12</p>
-                            <p class="text-xs text-gray-600">Contests</p>
-                        </div>
-                        <div class="bg-pink-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-bold text-pink-600">83%</p>
-                            <p class="text-xs text-gray-600">Accuracy</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Languages and streak -->
-                    <div class="flex flex-wrap gap-2 mt-3">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs flex items-center gap-1">
-                            <i class="fab fa-python text-blue-500"></i> Python
-                        </span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs flex items-center gap-1">
-                            <i class="fab fa-java text-orange-500"></i> Java
-                        </span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs flex items-center gap-1">
-                            <i class="fas fa-fire text-red-500"></i> 7 day streak
-                        </span>
-                    </div>
-                    
-                    <!-- Progress bar -->
-                    <div class="mt-4">
-                        <div class="flex justify-between text-xs text-gray-600 mb-1">
-                            <span>Next Milestone: 50 problems</span>
-                            <span>94%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full" style="width: 94%"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- View profile link -->
-                    <div class="mt-4 text-right">
-                        <span class="text-xs text-indigo-600 font-medium inline-flex items-center gap-1 group-hover:underline">
-                            View full profile <i class="fas fa-arrow-right text-xs"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Decorative scratch lines (optional) -->
-            <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10 z-20">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="scratchPattern" patternUnits="userSpaceOnUse" width="40" height="40">
-                            <path d="M0 10 Q20 5, 40 10" stroke="white" fill="none" stroke-width="0.5"/>
-                            <path d="M0 25 Q20 30, 40 25" stroke="white" fill="none" stroke-width="0.5"/>
-                            <path d="M15 0 Q10 20, 15 40" stroke="white" fill="none" stroke-width="0.5"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#scratchPattern)"/>
-                </svg>
-            </div>
-        </div>
+
         <!-- LEADERSHIP & POSITIONS OF RESPONSIBILITY Card -->
         <div class="glass-card p-8 visible">
           <h2 class="section-title"><i class="fas fa-crown text-blue-500"></i> Leadership & Positions of Responsibility</h2>
