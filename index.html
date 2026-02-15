@@ -567,6 +567,168 @@
                     </div>
                 </div>
             </div>
+                            <!-- 6. DREAMS Scratch Card - MAANG Companies -->
+                <div class="glass-card p-6 visible mt-6">
+                    <h2 class="section-title"><i class="fas fa-star"></i> Dreams</h2>
+                    
+                    <!-- Scratch card container -->
+                    <div class="relative w-full h-48 rounded-xl overflow-hidden cursor-pointer" id="scratchCard">
+                        <!-- Scratch layer (the gray coating) -->
+                        <div id="scratchLayer" class="absolute inset-0 bg-gradient-to-br from-gray-400 via-gray-300 to-gray-400 flex items-center justify-center z-10 transition-opacity duration-500" style="background-image: repeating-linear-gradient(45deg, #ccc 0px, #ccc 10px, #aaa 10px, #aaa 20px);">
+                            <div class="text-center">
+                                <i class="fas fa-hand-pointer text-3xl text-white mb-2 drop-shadow-lg"></i>
+                                <p class="text-white font-bold text-lg drop-shadow-lg">Scratch Me</p>
+                                <p class="text-gray-100 text-xs mt-1">click & drag to reveal</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Revealed content (MAANG Companies) -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 flex flex-col items-center justify-center p-4">
+                            <div class="text-xs font-semibold text-gray-400 mb-2">MY DREAM COMPANIES</div>
+                            <div class="grid grid-cols-5 gap-2 w-full">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">M</div>
+                                    <span class="text-xs mt-1 font-medium">Meta</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg">A</div>
+                                    <span class="text-xs mt-1 font-medium">Apple</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg">A</div>
+                                    <span class="text-xs mt-1 font-medium">Amazon</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-lg">N</div>
+                                    <span class="text-xs mt-1 font-medium">Netflix</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg">G</div>
+                                    <span class="text-xs mt-1 font-medium">Google</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-3 italic">"Dream big, work hard"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Reset button (optional) -->
+                    <div class="flex justify-end mt-3">
+                        <button id="resetScratch" class="text-xs text-gray-500 hover:text-indigo-600 transition-colors">
+                            <i class="fas fa-undo mr-1"></i> Scratch Again
+                        </button>
+                    </div>
+                </div>
+
+                <style>
+                    /* Scratch animation effect */
+                    .scratch-effect {
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .scratch-effect::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: transparent;
+                        pointer-events: none;
+                    }
+                </style>
+
+                <script>
+                    // Simple scratch card functionality
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const scratchCard = document.getElementById('scratchCard');
+                        const scratchLayer = document.getElementById('scratchLayer');
+                        let isScratching = false;
+                        let scratchCount = 0;
+                        
+                        if (scratchLayer) {
+                            // Mouse events for scratching
+                            scratchLayer.addEventListener('mousedown', startScratch);
+                            scratchLayer.addEventListener('touchstart', startScratch);
+                            
+                            function startScratch(e) {
+                                e.preventDefault();
+                                isScratching = true;
+                                scratchCount++;
+                                
+                                // After 3 scratches, reveal completely
+                                if (scratchCount >= 3) {
+                                    revealCard();
+                                } else {
+                                    // Partial scratch effect - reduce opacity
+                                    scratchLayer.style.opacity = '0.7';
+                                    
+                                    // Add scratch texture effect
+                                    scratchLayer.style.backgroundImage = 'repeating-linear-gradient(45deg, #ccc 0px, #ccc 5px, #aaa 5px, #aaa 10px)';
+                                }
+                            }
+                            
+                            // End scratching
+                            document.addEventListener('mouseup', endScratch);
+                            document.addEventListener('touchend', endScratch);
+                            
+                            function endScratch() {
+                                if (isScratching) {
+                                    isScratching = false;
+                                }
+                            }
+                            
+                            // Mouse move to simulate scratching
+                            scratchLayer.addEventListener('mousemove', scratchMove);
+                            scratchLayer.addEventListener('touchmove', scratchMove);
+                            
+                            function scratchMove(e) {
+                                if (!isScratching) return;
+                                e.preventDefault();
+                                
+                                // Get mouse position
+                                const rect = scratchLayer.getBoundingClientRect();
+                                let x, y;
+                                
+                                if (e.type === 'mousemove') {
+                                    x = e.clientX - rect.left;
+                                    y = e.clientY - rect.top;
+                                } else {
+                                    x = e.touches[0].clientX - rect.left;
+                                    y = e.touches[0].clientY - rect.top;
+                                }
+                                
+                                // Create scratch circle at mouse position
+                                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                                    scratchLayer.style.opacity = '0.5';
+                                    
+                                    // Add radial gradient to simulate scratched area
+                                    scratchLayer.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px, transparent 20px, rgba(0,0,0,0.2) 21px), repeating-linear-gradient(45deg, #ccc 0px, #ccc 10px, #aaa 10px, #aaa 20px)`;
+                                }
+                            }
+                            
+                            // Double click to reveal fully
+                            scratchLayer.addEventListener('dblclick', function() {
+                                revealCard();
+                            });
+                            
+                            // Reset button
+                            document.getElementById('resetScratch')?.addEventListener('click', function() {
+                                scratchLayer.style.opacity = '1';
+                                scratchLayer.style.backgroundImage = 'repeating-linear-gradient(45deg, #ccc 0px, #ccc 10px, #aaa 10px, #aaa 20px)';
+                                scratchCount = 0;
+                                isScratching = false;
+                            });
+                        }
+                        
+                        function revealCard() {
+                            const scratchLayer = document.getElementById('scratchLayer');
+                            if (scratchLayer) {
+                                scratchLayer.style.opacity = '0';
+                                scratchLayer.style.transition = 'opacity 0.8s';
+                            }
+                        }
+                    });
+                </script>
 
             <!-- RIGHT COLUMN (profile, experience, projects, leadership) unchanged except we add a small security mention maybe -->
             <div class="md:col-span-2 space-y-6">
@@ -638,3 +800,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+
