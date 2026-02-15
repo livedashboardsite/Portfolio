@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prathamesh Thakur · Creative Developer</title>
+    <title>Prathamesh Thakur · Creative Developer & Security Enthusiast</title>
 
     <!-- Tailwind + Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -360,6 +360,30 @@
                 height: 150px;
             }
         }
+
+        /* custom progress/achievement style */
+        .thm-badge {
+            background: #1a1f36;
+            border: 1px solid #2f3a6b;
+            color: white;
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .thm-badge i {
+            color: #ffb347;
+        }
+        .rank-glow {
+            background: linear-gradient(145deg, #fbbf24, #f59e0b);
+            color: black;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body>
@@ -386,7 +410,7 @@
                     </h1>
 
                     <p class="text-lg text-gray-600 mb-4">
-                        Creative Tech Builder • Web Developer • Unity Game Developer
+                        Creative Tech Builder • Web Developer • Unity Dev • Security Learner
                     </p>
 
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
@@ -398,7 +422,7 @@
                             <i class="fab fa-github mr-2"></i>GitHub
                         </a>
 
-                        <!-- LINKEDIN – corrected link (added https://) -->
+                        <!-- LINKEDIN – corrected link -->
                         <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2"
                            target="_blank"
                            rel="noopener noreferrer"
@@ -406,24 +430,29 @@
                             <i class="fab fa-linkedin mr-2"></i>LinkedIn
                         </a>
 
-                        <!-- Email unchanged -->
+                        <!-- Email -->
                         <a href="mailto:prathameshthakur539@gmail.com"
                            class="social-link">
                             <i class="fas fa-envelope mr-2"></i>Email
+                        </a>
+                        <!-- TryHackMe badge (quick link) -->
+                        <a href="https://tryhackme.com/p/yourusername" target="_blank" class="social-link">
+                            <i class="fas fa-shield-halved"></i> TryHackMe
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MAIN GRID (rest of the content identical, only links updated) -->
+        <!-- MAIN GRID -->
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- LEFT COLUMN -->
+            <!-- LEFT COLUMN (achievements / stack / languages / contact) -->
             <div class="space-y-6">
-                <!-- 1. ACHIEVEMENTS & ACTIVITIES Card -->
+                <!-- 1. ACHIEVEMENTS & ACTIVITIES Card (UPDATED WITH TRYHACKME) -->
                 <div class="glass-card p-6 visible">
                     <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements & Activities</h2>
-                    <!-- Technical Achievements -->
+                    
+                    <!-- Technical Achievements (original) -->
                     <div class="mb-6">
                         <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-microchip text-purple-500"></i> Technical Achievements</p>
                         <div class="space-y-3">
@@ -441,7 +470,44 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Sports Achievements -->
+
+                    <!-- NEW TRYHACKME SECTION (embedded within achievements) -->
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-shield-halved text-red-500"></i> TryHackMe Progression</p>
+                        
+                        <!-- Bronze league & rank #10 promo zone -->
+                        <div class="bg-[#0a1128] text-white rounded-xl p-4 border border-blue-800 mb-4">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <span class="thm-badge"><i class="fas fa-medal"></i> Bronze League</span>
+                                <span class="rank-glow text-sm"><i class="fas fa-fire"></i> Promo Zone #10</span>
+                            </div>
+                            <p class="text-xs text-blue-300 mt-1">Top #10 in promotional leaderboard · active learner</p>
+                        </div>
+
+                        <!-- Cyber Security 101 progress 1% (but we use a visual) -->
+                        <div class="mb-3">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs font-medium text-gray-600 flex items-center gap-1"><i class="fas fa-graduation-cap text-blue-600"></i> Cyber Security 101</span>
+                                <span class="text-xs font-medium text-blue-600">1% complete</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full" style="width:1%"></div></div>
+                            <p class="text-xs text-gray-500 mt-1">Started foundational path · covering core concepts</p>
+                        </div>
+
+                        <!-- Completed modules: Offensive/Defensive intro -->
+                        <div class="grid grid-cols-1 gap-2 mt-3">
+                            <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 flex items-center gap-3">
+                                <div class="bg-emerald-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs"><i class="fas fa-check"></i></div>
+                                <div class="text-sm"><span class="font-semibold">Offensive Security Intro</span><br><span class="text-xs text-gray-600">Hack your first website (legally & safe)</span></div>
+                            </div>
+                            <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 flex items-center gap-3">
+                                <div class="bg-emerald-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs"><i class="fas fa-check"></i></div>
+                                <div class="text-sm"><span class="font-semibold">Defensive Security Intro</span><br><span class="text-xs text-gray-600">Threat Intel, SOC, DFIR, Malware, SIEM</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Achievements (original) -->
                     <div class="mb-6">
                         <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-medal text-yellow-500"></i> Sports Achievements</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -451,11 +517,12 @@
                             <div class="sport-tag basketball"><span class="mr-2">🏀</span> Basketball - District Level</div>
                         </div>
                     </div>
-                    <!-- International Exchange -->
+
+                    <!-- International Exchange (unchanged) -->
                     <div><p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-globe-asia text-blue-500"></i> International Exposure</p><div class="sport-tag afs"><i class="fas fa-globe-americas mr-2"></i>AFS (American Field Service) Member 2024-25</div></div>
                 </div>
 
-                <!-- 2. TECH STACK Card -->
+                <!-- 2. TECH STACK Card (unchanged) -->
                 <div class="glass-card p-6 visible">
                     <h2 class="section-title"><i class="fas fa-code"></i> Tech Stack</h2>
                     <div class="space-y-4">
@@ -476,13 +543,13 @@
                     </div>
                 </div>
 
-                <!-- 3. LANGUAGES Card -->
+                <!-- 3. LANGUAGES Card (unchanged) -->
                 <div class="glass-card p-6 visible"><h2 class="section-title"><i class="fas fa-language"></i> Languages</h2><ul class="custom-list"><li>English <span class="text-gray-400 text-sm">(Professional)</span></li><li>Hindi <span class="text-gray-400 text-sm">(Native)</span></li><li>Marathi <span class="text-gray-400 text-sm">(Native)</span></li></ul></div>
 
-                <!-- 4. EDUCATION Card -->
+                <!-- 4. EDUCATION Card (unchanged) -->
                 <div class="glass-card p-6 visible"><h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2><ul class="custom-list"><li><strong>Jindal Vidya Mandir,Ratnagiri</strong> – Class 10 (83.2%)</li><li><strong>Science Stream</strong> – Class 12 PCM </li></ul></div>
 
-                <!-- 5. CONTACT Card (social badges also contain the correct links) -->
+                <!-- 5. CONTACT Card (unchanged, but links already correct) -->
                 <div class="glass-card p-6 visible">
                     <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
                     <div class="contact-info"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text">Ratnagiri, Maharashtra</div></div>
@@ -501,12 +568,12 @@
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN -->
+            <!-- RIGHT COLUMN (profile, experience, projects, leadership) unchanged except we add a small security mention maybe -->
             <div class="md:col-span-2 space-y-6">
-                <!-- Profile Card -->
-                <div class="glass-card p-8 visible"><h2 class="section-title"><i class="fas fa-user"></i> Profile</h2><p class="text-gray-600 leading-relaxed">Class 12 science student passionate about modern web development, game systems, and UI design. Experienced in work-based website creation, freelance creative production, and Unity-based multiplayer development. Award-winning project developer with multiple district-level achievements.</p></div>
+                <!-- Profile Card (updated with security interest) -->
+                <div class="glass-card p-8 visible"><h2 class="section-title"><i class="fas fa-user"></i> Profile</h2><p class="text-gray-600 leading-relaxed">Class 12 science student passionate about modern web development, game systems, UI design, and <span class="font-semibold text-indigo-600">cybersecurity</span>. Active on TryHackMe (Bronze league, top #10 promo zone). Experienced in work-based website creation, freelance creative production, and Unity-based multiplayer development. Award-winning project developer with multiple district-level achievements.</p></div>
 
-                <!-- Experience Card -->
+                <!-- Experience Card (unchanged) -->
                 <div class="glass-card p-8 visible">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
                     <div class="exp-item"><div class="exp-title">Fungro Teenlancher</div><div class="exp-subtitle">2 Months · Web Development</div><ul class="custom-list mt-2"><li>Website UI development and optimization</li><li>Research & documentation structuring</li></ul></div>
@@ -514,10 +581,10 @@
                     <div class="exp-item"><div class="exp-title">Rahul Kadam – Voice Over Artist</div><div class="exp-subtitle">Part-time · Audio/Video</div><ul class="custom-list mt-2"><li>Audio mixing & video editing</li></ul></div>
                 </div>
 
-                <!-- STARTUP EXPERIENCE Card -->
+                <!-- STARTUP EXPERIENCE Card (unchanged) -->
                 <div class="glass-card p-8 visible"><h2 class="section-title"><i class="fas fa-rocket"></i> Startup Experience</h2><div class="exp-item"><div class="exp-title">SWARLY – UI/UX Designer (Founding Team)</div><div class="exp-subtitle">2026–Present · Music Discovery Platform</div><ul class="custom-list mt-2"><li>Designing interactive user journeys and UI concepts for a regional-first Indian music discovery platform</li><li>Contributing to product ideation and early-stage validation discussions</li><li>Collaborating with frontend, backend, and strategy members</li><li>Focusing on animation-driven engagement and discovery flow design</li></ul></div></div>
 
-                <!-- Projects Card -->
+                <!-- Projects Card (unchanged) -->
                 <div class="glass-card p-8 visible">
                     <h2 class="section-title"><i class="fas fa-folder-open"></i> Projects</h2>
                     <div class="project-item"><strong class="text-gray-800">Smart Gate System (Version 2.0 – In Development)</strong><p class="text-gray-600 text-sm mt-1">Multi-award winning project - 1st prize at School, Screening, and District Level in Ratnagiri.</p></div>
@@ -527,7 +594,7 @@
                     <div class="project-item"><strong class="text-gray-800">AWS Project - Expenses Tracker</strong><p class="text-gray-600 text-sm mt-1">Created as part of AWS School Team - Ranked #97 among all schools.</p></div>
                 </div>
 
-                <!-- LEADERSHIP Card -->
+                <!-- LEADERSHIP Card (unchanged) -->
                 <div class="glass-card p-8 visible">
                     <h2 class="section-title"><i class="fas fa-crown text-blue-500"></i> Leadership & Positions of Responsibility</h2>
                     <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500"><div class="flex items-start gap-3"><div class="bg-blue-100 text-blue-600 rounded-lg p-3"><i class="fas fa-users fa-fw"></i></div><div class="flex-1"><div class="exp-title">House Vice Captain (2025–26)</div><div class="exp-subtitle">Jindal Vidya Mandir,Ratnagiri</div><ul class="custom-list mt-1"><li>Led inter-house coordination and student engagement activities</li><li>Assisted in organizing academic and cultural events</li><li>Acted as a communication bridge between faculty and students</li></ul></div></div></div>
@@ -538,7 +605,7 @@
             </div>
         </div>
 
-        <!-- INSPIRATIONAL QUOTE CARD (fixed misplaced) -->
+        <!-- INSPIRATIONAL QUOTE CARD (fixed) -->
         <div class="glass-card p-6 visible flex items-center justify-center min-h-[240px] mt-6">
             <div class="text-center">
                 <i class="fas fa-quote-right text-3xl text-gray-200 mb-3"></i>
@@ -547,7 +614,7 @@
             </div>
         </div>
 
-        <footer class="footer">© 2026 Prathamesh Thakur · Built with <i class="fas fa-heart text-red-500"></i> and creativity</footer>
+        <footer class="footer">© 2026 Prathamesh Thakur · TryHackMe Bronze · #10 Promo Zone · <i class="fas fa-heart text-red-500"></i> security & creativity</footer>
     </div>
 </div>
 
@@ -571,6 +638,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
-
-
