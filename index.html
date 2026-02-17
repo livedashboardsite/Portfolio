@@ -674,7 +674,7 @@
                 </div>
               </div>
 
-              <!-- TryHackMe - CERTIFICATE CLICKABLE -->
+              <!-- TryHackMe - CERTIFICATE CLICKABLE - FIXED -->
               <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3 hover:shadow-md transition-shadow certificate-clickable" onclick="showCertificate('tryhackme')">
                 <div class="flex items-start gap-3">
                   <div class="bg-indigo-500 text-white rounded-lg p-2 text-sm">
@@ -916,7 +916,7 @@
     });
   }
 
-  // Certificate data with your actual image URLs
+  // Certificate data with your actual image URLs - FIXED TryHackMe URL
   const certificates = {
     'smart-gate': {
       title: 'Smart Gate System Project - 1st Prize Certificate',
@@ -925,7 +925,7 @@
     },
     'tryhackme': {
       title: 'TryHackMe - Cyber Security Badge',
-      imageUrl: '<a href="https://i.ibb.co/RTTp4f9m/Untitled-design.png',
+      imageUrl: 'https://i.ibb.co/RTTp4f9m/Untitled-design.png', // FIXED: Removed the <a> tag, just the URL string
       description: 'Level 4 Cyber Security Practitioner with 380 points, 15-day streak, and 4 rooms completed'
     },
     'afs': {
@@ -940,12 +940,12 @@
     },
     'canva-ai': {
       title: 'AI Skills for Students - Canva Certificate',
-      imageUrl: 'https://i.ibb.co/HD7RtzJ7/sa.png', // Replace with your actual Canva AI certificate image URL
+      imageUrl: 'https://i.ibb.co/HD7RtzJ7/sa.png',
       description: 'Completed: January 16, 2026 · 1 hour 30 minutes training · Credential ID: 51af19 · Presented by The Canva Team'
     },
     'canva-pro': {
       title: 'Canva Professional Badge',
-      imageUrl: 'https://i.ibb.co/Ndphmd5f/badge.webp', // Replace with your Canva Professional badge image URL
+      imageUrl: 'https://i.ibb.co/Ndphmd5f/badge.webp',
       description: 'Certified Canva Professional - Expert in design tools and creative content creation'
     }
   };
@@ -1026,8 +1026,3 @@
 
 </body>
 </html>
-
-
-
-
-
