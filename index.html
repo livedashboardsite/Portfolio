@@ -3,1057 +3,1064 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prathamesh Thakur | Creative Developer</title>
-  <meta name="description" content="Official portfolio of Prathamesh Thakur - Class 12 Science student, Web Developer, Unity Game Developer, and award-winning project builder from Ratnagiri, Maharashtra, India.">
+  <title>Prathamesh Thakur</title>
+  <meta name="description" content="Portfolio of Prathamesh Thakur – Creative Developer, Web Developer, Unity Game Developer from Ratnagiri, Maharashtra.">
+  <meta name="keywords" content="Prathamesh Thakur, Web Developer Ratnagiri, Unity Developer India, Portfolio">
+  <meta name="author" content="Prathamesh Thakur">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://livedashboardsite.github.io/Portfolio/">
 
-<meta name="keywords" content="Prathamesh Thakur, Prathamesh, Prathamesh Thakur Portfolio, Web Developer Ratnagiri, Unity Developer India">
-
-<meta name="author" content="Prathamesh Thakur">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://livedashboardsite.github.io/Portfolio/">
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Prathamesh Thakur",
-  "url": "https://livedashboardsite.github.io/Portfolio/",
-  "sameAs": [
-    "https://github.com/livedashboardsite",
-    "https://www.linkedin.com/in/prathamesh-thakur-5728162b2",
-    "https://instagram.com/prathamesh_thakur_emotion"
-  ],
-  "jobTitle": "Web Developer",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Ratnagiri",
-    "addressRegion": "Maharashtra",
-    "addressCountry": "India"
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prathamesh Thakur",
+    "url": "https://livedashboardsite.github.io/Portfolio/",
+    "sameAs": [
+      "https://github.com/livedashboardsite",
+      "https://www.linkedin.com/in/prathamesh-thakur-5728162b2",
+      "https://instagram.com/prathamesh_thakur_emotion"
+    ],
+    "jobTitle": "Web Developer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ratnagiri",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    }
   }
-}
-</script>
+  </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    :root {
+      --cream: #f5f0e8;
+      --cream-dark: #ede8de;
+      --cream-darker: #e0d9cc;
+      --ink: #1a1612;
+      --ink-mid: #3d3630;
+      --ink-light: #7a6e65;
+      --ink-faint: #b0a89e;
+      --accent: #c8501a;
+      --accent-warm: #e8a020;
+      --accent-cool: #2a5c8a;
+      --white: #fdfaf5;
     }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: 'Inter', sans-serif;
-        min-height: 100vh;
-        padding: 2rem 1rem;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: default;
     }
 
-    /* Optimized glass morphism */
-    .glass-card {
-        background: white;
-        border-radius: 30px;
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-        opacity: 0;
-        transform: translateY(0);
-        will-change: transform, opacity;
+    /* ─── CUSTOM CURSOR ─── */
+    .cursor {
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease;
+      mix-blend-mode: multiply;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all 0.25s ease;
+      opacity: 0.5;
+    }
+    body:hover .cursor { transform: scale(1); }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1000; opacity: 0.5;
     }
 
-    .glass-card.visible {
-        opacity: 1;
-        animation: fadeInUp 0.4s ease-out forwards;
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      padding: 1.4rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 500;
+      background: linear-gradient(to bottom, var(--cream) 60%, transparent);
+      transition: padding 0.3s ease;
+    }
+    nav.scrolled { padding: 1rem 4rem; background: var(--cream); border-bottom: 1px solid var(--cream-darker); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-light); text-decoration: none;
+      transition: color 0.2s ease; font-weight: 400;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid; place-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner { max-width: 1200px; width: 100%; }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--accent);
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      font-weight: 900; line-height: 0.9;
+      color: var(--ink); letter-spacing: -0.02em;
+      opacity: 0; animation: fadeUp 0.8s 0.35s ease forwards;
+    }
+    .hero-name .italic { font-style: italic; color: var(--ink-mid); }
+    .hero-tagline {
+      margin-top: 2rem;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--ink-light); font-weight: 300;
+      max-width: 520px; line-height: 1.6;
+      opacity: 0; animation: fadeUp 0.8s 0.5s ease forwards;
+    }
+    .hero-cta {
+      margin-top: 3rem; display: flex; gap: 1.2rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.8s 0.65s ease forwards;
+    }
+    .btn-primary {
+      padding: 0.85rem 2.2rem; background: var(--ink);
+      color: var(--cream); text-decoration: none;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      transition: all 0.25s ease; border: 1.5px solid var(--ink);
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+    .btn-outline {
+      padding: 0.85rem 2.2rem; background: transparent;
+      color: var(--ink); text-decoration: none;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      border: 1.5px solid var(--cream-darker);
+      transition: all 0.25s ease;
+    }
+    .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+    .hero-profile-wrap {
+      position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+      opacity: 0; animation: fadeIn 1s 0.8s ease forwards;
+    }
+    .hero-profile-img {
+      width: 260px; height: 320px; object-fit: cover;
+      border: 1px solid var(--cream-darker);
+      filter: grayscale(20%);
+      transition: filter 0.4s ease;
+    }
+    .hero-profile-img:hover { filter: grayscale(0%); }
+    .hero-profile-label {
+      margin-top: 0.8rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-faint); text-align: center;
+    }
+    .hero-scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      opacity: 0; animation: fadeIn 1s 1.2s ease forwards;
+    }
+    .hero-scroll-hint span {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint);
+    }
+    .scroll-line {
+      width: 1px; height: 50px; background: var(--ink-faint);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(1); opacity: 0.4; }
+      50% { transform: scaleY(0.5); opacity: 1; }
     }
 
-    .glass-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    /* ─── SECTIONS ─── */
+    section { padding: 7rem 4rem; max-width: 1300px; margin: 0 auto; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
     }
-
-    /* Certificate clickable items */
-    .certificate-clickable {
-        cursor: pointer;
-        transition: all 0.2s ease;
-        position: relative;
+    .section-label::before {
+      content: attr(data-num); font-size: 0.65rem; color: var(--ink-faint);
     }
-
-    .certificate-clickable:hover {
-        transform: translateX(5px);
-    }
-
-    .certificate-clickable::after {
-        content: "⚡";
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 0;
-        transition: opacity 0.2s ease;
-        font-size: 1.2rem;
-    }
-
-    .certificate-clickable:hover::after {
-        opacity: 1;
-    }
-
-    /* Modal styles */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(10px);
-        z-index: 9999;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .modal-overlay.active {
-        display: flex;
-        opacity: 1;
-    }
-
-    .modal-content {
-        background: white;
-        border-radius: 30px;
-        padding: 2rem;
-        max-width: 1000px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        position: relative;
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-overlay.active .modal-content {
-        transform: scale(1);
-    }
-
-    .modal-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #f0f2f5;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        color: #4a5568;
-        transition: all 0.2s ease;
-        z-index: 10;
-    }
-
-    .modal-close:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        transform: rotate(90deg);
-    }
-
-    .modal-title {
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        padding-right: 2rem;
-    }
-
-    /* Certificate image styles */
-    .certificate-image-container {
-        background: #f8f9ff;
-        border-radius: 20px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        text-align: center;
-    }
-
-    .certificate-img {
-        max-width: 100%;
-        max-height: 60vh;
-        object-fit: contain;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        cursor: zoom-in;
-        transition: transform 0.3s ease;
-    }
-
-    .certificate-img:hover {
-        transform: scale(1.02);
-    }
-
-    /* Image placeholder while loading */
-    .certificate-img.loading {
-        min-height: 300px;
-        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-        background-size: 200% 100%;
-        animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-    }
-
-    /* Image controls */
-    .image-controls {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .image-control-btn {
-        padding: 0.5rem 1rem;
-        background: #f0f2f5;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: #4a5568;
-        transition: all 0.2s ease;
-    }
-
-    .image-control-btn:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-    }
-
-    /* Section titles with gradient */
     .section-title {
-        font-weight: 600;
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin-bottom: 3.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--ink-mid); }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      max-width: 1300px; margin: 0 auto;
+      height: 1px; background: var(--cream-darker);
     }
 
-    .section-title i {
-        font-size: 1.2rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    /* ─── ABOUT ─── */
+    #about .about-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: start;
+    }
+    .about-bio {
+      font-size: 1.05rem; color: var(--ink-mid); line-height: 1.8; font-weight: 300;
+    }
+    .about-bio p + p { margin-top: 1.2rem; }
+    .about-meta { display: flex; flex-direction: column; gap: 1.5rem; }
+    .meta-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 1.2rem; border-bottom: 1px solid var(--cream-darker);
+      font-size: 0.85rem;
+    }
+    .meta-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .meta-label {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+    }
+    .meta-value { color: var(--ink-mid); font-weight: 400; text-align: right; max-width: 60%; }
+    .availability-dot {
+      display: inline-block; width: 7px; height: 7px;
+      background: #4caf50; border-radius: 50%; margin-right: 6px;
+      animation: blink 2s ease infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* ─── TECH STACK ─── */
+    #stack .stack-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px;
+      border: 1px solid var(--cream-darker);
+    }
+    .stack-cell {
+      padding: 2rem 1.8rem; background: var(--white);
+      transition: background 0.2s ease;
+    }
+    .stack-cell:hover { background: var(--ink); }
+    .stack-cell:hover .stack-cell-label,
+    .stack-cell:hover .stack-cell-tags span { color: var(--cream); border-color: rgba(255,255,255,0.2); }
+    .stack-cell-label {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.8rem; display: block;
+    }
+    .stack-cell-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .stack-cell-tags span {
+      font-size: 0.78rem; color: var(--ink-mid);
+      border: 1px solid var(--cream-darker);
+      padding: 0.2rem 0.6rem;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    /* Profile image styling */
-    .profile-img {
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 30px;
-        border: 4px solid white;
-        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        transition: transform 0.2s ease;
-        will-change: transform;
+    /* ─── EXPERIENCE ─── */
+    #experience .exp-list { display: flex; flex-direction: column; }
+    .exp-row {
+      display: grid; grid-template-columns: 160px 1fr auto;
+      gap: 2rem; align-items: start;
+      padding: 2rem 0; border-bottom: 1px solid var(--cream-darker);
+      transition: background 0.2s ease;
+      cursor: default;
+    }
+    .exp-row:first-child { border-top: 1px solid var(--cream-darker); }
+    .exp-row:hover { padding-left: 1rem; }
+    .exp-year {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      color: var(--ink-faint); letter-spacing: 0.1em; padding-top: 0.3rem;
+    }
+    .exp-info-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .exp-info-sub {
+      font-size: 0.82rem; color: var(--accent); margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+    .exp-info-desc { font-size: 0.85rem; color: var(--ink-light); line-height: 1.7; }
+    .exp-arrow {
+      font-size: 0.9rem; color: var(--ink-faint);
+      transition: transform 0.2s ease, color 0.2s ease;
+      padding-top: 0.3rem;
+    }
+    .exp-row:hover .exp-arrow { transform: translateX(4px); color: var(--accent); }
+
+    /* ─── PROJECTS ─── */
+    #projects .projects-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+      border: 1px solid var(--cream-darker);
+    }
+    .project-card {
+      background: var(--white); padding: 2.5rem;
+      transition: background 0.3s ease; position: relative; overflow: hidden;
+      cursor: default;
+    }
+    .project-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); transform: scaleX(0);
+      transition: transform 0.3s ease; transform-origin: left;
+    }
+    .project-card:hover { background: var(--ink); }
+    .project-card:hover .proj-title,
+    .project-card:hover .proj-desc,
+    .project-card:hover .proj-tags span { color: var(--cream); border-color: rgba(255,255,255,0.15); }
+    .project-card:hover .proj-num { color: rgba(255,255,255,0.15); }
+    .project-card:hover::after { transform: scaleX(1); }
+    .proj-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 900; color: var(--cream-darker);
+      line-height: 1; margin-bottom: 1rem;
+      transition: color 0.3s ease;
+    }
+    .proj-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.6rem; line-height: 1.3;
+      transition: color 0.3s ease;
+    }
+    .proj-desc {
+      font-size: 0.82rem; color: var(--ink-light); line-height: 1.7;
+      margin-bottom: 1.2rem; transition: color 0.3s ease;
+    }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .proj-tags span {
+      font-size: 0.7rem; border: 1px solid var(--cream-darker);
+      padding: 0.2rem 0.6rem; color: var(--ink-faint);
+      font-family: 'DM Mono', monospace;
+      transition: color 0.3s, border-color 0.3s;
     }
 
-    .profile-img:hover {
-        transform: scale(1.03);
+    /* ─── ACHIEVEMENTS ─── */
+    #achievements .ach-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      border: 1px solid var(--cream-darker);
+    }
+    .ach-card {
+      background: var(--white); padding: 2rem;
+      transition: background 0.25s ease; cursor: pointer;
+    }
+    .ach-card:hover { background: var(--cream-dark); }
+    .ach-icon {
+      width: 44px; height: 44px; border: 1px solid var(--cream-darker);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem; font-size: 1rem; color: var(--accent);
+      transition: background 0.25s, color 0.25s;
+    }
+    .ach-card:hover .ach-icon { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .ach-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+    .ach-sub { font-size: 0.75rem; color: var(--ink-faint); margin-bottom: 0.6rem; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; }
+    .ach-desc { font-size: 0.8rem; color: var(--ink-light); line-height: 1.6; }
+    .ach-badge {
+      margin-top: 0.8rem; display: inline-block;
+      font-size: 0.68rem; font-family: 'DM Mono', monospace;
+      letter-spacing: 0.08em; color: var(--accent);
+      border-bottom: 1px dashed var(--accent); cursor: pointer;
     }
 
-    /* Link styling */
-    .social-link {
-        color: #4a5568;
-        font-weight: 500;
-        padding: 8px 16px;
-        border-radius: 20px;
-        background: #f0f2f5;
-        transition: all 0.2s ease;
-        text-decoration: none;
-        display: inline-block;
+    /* ─── LEADERSHIP ─── */
+    #leadership .lead-grid { display: flex; flex-direction: column; gap: 0; }
+    .lead-row {
+      display: flex; gap: 2.5rem; align-items: flex-start;
+      padding: 2rem 0; border-bottom: 1px solid var(--cream-darker);
+      transition: padding-left 0.2s ease;
+    }
+    .lead-row:first-child { border-top: 1px solid var(--cream-darker); }
+    .lead-row:hover { padding-left: 0.8rem; }
+    .lead-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      border: 1px solid var(--cream-darker);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); margin-top: 0.2rem;
+    }
+    .lead-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+    .lead-sub { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; }
+    .lead-desc { font-size: 0.82rem; color: var(--ink-light); line-height: 1.7; }
+
+    /* ─── CONTACT ─── */
+    #contact { padding-bottom: 8rem; }
+    #contact .contact-inner {
+      border: 1px solid var(--cream-darker); padding: 5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      background: var(--white);
+    }
+    .contact-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; color: var(--ink); line-height: 1.15;
+    }
+    .contact-heading em { font-style: italic; color: var(--ink-mid); }
+    .contact-sub { margin-top: 1rem; font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      text-decoration: none; padding: 0.9rem 1.2rem;
+      border: 1px solid var(--cream-darker);
+      transition: all 0.2s ease;
+    }
+    .contact-link:hover { border-color: var(--ink); background: var(--ink); color: var(--cream); }
+    .contact-link:hover .cl-icon,
+    .contact-link:hover .cl-label,
+    .contact-link:hover .cl-value { color: var(--cream); }
+    .cl-icon { font-size: 0.9rem; color: var(--accent); width: 20px; text-align: center; transition: color 0.2s; }
+    .cl-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); min-width: 70px; transition: color 0.2s; }
+    .cl-value { font-size: 0.82rem; color: var(--ink-mid); transition: color 0.2s; word-break: break-all; }
+    .cl-arrow { margin-left: auto; font-size: 0.75rem; color: var(--ink-faint); transition: transform 0.2s, color 0.2s; }
+    .contact-link:hover .cl-arrow { transform: translateX(3px); color: var(--cream); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--cream-darker);
+      padding: 2rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(20,16,12,0.92); backdrop-filter: blur(12px);
+      z-index: 9000; display: none; place-items: center; padding: 2rem;
+    }
+    .modal-overlay.active { display: grid; }
+    .modal-box {
+      background: var(--white); max-width: 900px; width: 100%;
+      max-height: 90vh; overflow-y: auto; position: relative;
+      padding: 3rem; border: 1px solid var(--cream-darker);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 36px; height: 36px; border: 1px solid var(--cream-darker);
+      background: transparent; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: var(--ink-mid);
+      transition: all 0.2s ease;
+    }
+    .modal-close:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+    .modal-cert-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 1.5rem; padding-right: 3rem;
+    }
+    .modal-cert-img {
+      width: 100%; max-height: 65vh; object-fit: contain;
+      border: 1px solid var(--cream-darker); display: block;
+    }
+    .modal-cert-desc { margin-top: 1rem; font-size: 0.82rem; color: var(--ink-light); }
+    .modal-cert-actions { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+    .modal-btn {
+      padding: 0.6rem 1.4rem; font-size: 0.72rem; font-family: 'DM Mono', monospace;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+      border: 1px solid var(--ink); background: transparent; color: var(--ink);
+      transition: all 0.2s ease;
+    }
+    .modal-btn:hover { background: var(--ink); color: var(--cream); }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      background: var(--ink); color: var(--cream);
+      padding: 0.7rem 1.6rem; font-size: 0.75rem; font-family: 'DM Mono', monospace;
+      letter-spacing: 0.08em; z-index: 9999; display: none;
+      animation: toastUp 2.5s ease forwards;
+    }
+    @keyframes toastUp {
+      0% { opacity: 0; bottom: 1rem; }
+      10%, 85% { opacity: 1; bottom: 2rem; }
+      100% { opacity: 0; bottom: 2rem; }
     }
 
-    .social-link:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        transform: translateY(-1px);
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* Contact info styling */
-    .contact-info {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 10px 0;
-        border-bottom: 1px solid #f0f0f0;
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      nav.scrolled { padding: 0.9rem 2rem; }
+      .nav-links { display: none; }
+      #hero { padding: 6rem 2rem 3rem; }
+      .hero-profile-wrap { display: none; }
+      section { padding: 5rem 2rem; }
+      #about .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      #projects .projects-grid { grid-template-columns: 1fr; }
+      #achievements .ach-grid { grid-template-columns: repeat(2, 1fr); }
+      #contact .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 2.5rem; }
+      footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+      .exp-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-year { padding-top: 0; }
+      .exp-arrow { display: none; }
     }
-
-    .contact-info:last-child {
-        border-bottom: none;
-    }
-
-    .contact-icon {
-        width: 32px;
-        height: 32px;
-        background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #667eea;
-    }
-
-    .contact-text {
-        color: #4a5568;
-        font-size: 0.95rem;
-        word-break: break-all;
-    }
-
-    .contact-text a {
-        color: #4a5568;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-
-    .contact-text a:hover {
-        color: #667eea;
-    }
-
-    /* List items with custom bullets */
-    .custom-list {
-        list-style: none;
-        padding: 0;
-    }
-
-    .custom-list li {
-        padding: 8px 0;
-        padding-left: 24px;
-        position: relative;
-        color: #4a5568;
-        font-size: 0.95rem;
-    }
-
-    .custom-list li:before {
-        content: "▹";
-        position: absolute;
-        left: 0;
-        color: #667eea;
-        font-weight: bold;
-    }
-
-    /* Experience items */
-    .exp-item {
-        padding: 1rem;
-        border-radius: 16px;
-        background: #f8f9ff;
-        margin-bottom: 1rem;
-        transition: transform 0.2s ease, background 0.2s ease;
-        will-change: transform;
-    }
-
-    .exp-item:hover {
-        background: #edf2f9;
-        transform: translateX(3px);
-    }
-
-    .exp-title {
-        font-weight: 600;
-        color: #2d3748;
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
-    }
-
-    .exp-subtitle {
-        color: #667eea;
-        font-size: 0.9rem;
-        margin-bottom: 0.75rem;
-    }
-
-    /* Tech stack tags */
-    .tech-tag {
-        display: inline-block;
-        padding: 4px 12px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        margin: 0 4px 4px 0;
-        transition: transform 0.15s ease;
-        will-change: transform;
-    }
-
-    .tech-tag:hover {
-        transform: scale(1.03);
-    }
-
-    /* Project cards */
-    .project-item {
-        padding: 1rem;
-        border-radius: 16px;
-        background: #f8f9ff;
-        margin-bottom: 1rem;
-        border-left: 3px solid #667eea;
-        transition: background 0.2s ease, border-left-width 0.2s ease;
-    }
-
-    .project-item:hover {
-        background: #edf2f9;
-        border-left-width: 6px;
-    }
-
-    /* Sport tag styles */
-    .sport-tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 8px 16px;
-        border-radius: 30px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-        width: 100%;
-    }
-
-    .sport-tag.badminton {
-        background: #fff7ed;
-        color: #9a3412;
-        border: 1px solid #fed7aa;
-    }
-
-    .sport-tag.football {
-        background: #f0fdf4;
-        color: #166534;
-        border: 1px solid #bbf7d0;
-    }
-
-    .sport-tag.tt {
-        background: #eff6ff;
-        color: #1e40af;
-        border: 1px solid #bfdbfe;
-    }
-
-    .sport-tag.basketball {
-        background: #faf5ff;
-        color: #6b21a8;
-        border: 1px solid #e9d5ff;
-    }
-
-    .sport-tag.afs {
-        background: #ecfdf5;
-        color: #065f46;
-        border: 1px solid #a7f3d0;
-    }
-
-    .sport-tag:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Social media mini badges */
-    .social-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 12px;
-        background: #f0f2f5;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        color: #4a5568;
-        transition: all 0.2s ease;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .social-badge:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    .social-badge i {
-        font-size: 0.9rem;
-    }
-
-    /* Availability badge */
-    .availability-badge {
-        display: inline-block;
-        padding: 4px 12px;
-        background: #48bb78;
-        color: white;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-
-    /* Footer */
-    .footer {
-        text-align: center;
-        color: white;
-        margin-top: 3rem;
-        padding: 1rem;
-        font-size: 0.9rem;
-        opacity: 0.9;
-    }
-
-    /* Animation */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        body {
-            padding: 1rem;
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .modal-content {
-            padding: 1.5rem;
-        }
-        
-        .modal-title {
-            font-size: 1.4rem;
-        }
-    }
-
-    .page-wrapper {
-        opacity: 0;
-        animation: pageFadeIn 0.3s ease-out forwards;
-    }
-
-    @keyframes pageFadeIn {
-        to {
-            opacity: 1;
-        }
-    }
-
-    .cursor-pointer {
-        cursor: pointer;
-    }
-
-    /* Toast notification for copy */
-    .toast-message {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #333;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 30px;
-        font-size: 0.9rem;
-        z-index: 10000;
-        animation: toastFade 2s ease;
-        opacity: 0;
-        display: none;
-    }
-
-    @keyframes toastFade {
-        0% { opacity: 0; bottom: 0; }
-        10% { opacity: 1; bottom: 20px; }
-        90% { opacity: 1; bottom: 20px; }
-        100% { opacity: 0; bottom: 0; }
-    }
-
-    /* Achievement badge for certificates */
-    .achievement-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        padding: 2px 8px;
-        background: #e8f0fe;
-        color: #667eea;
-        border-radius: 12px;
-        font-size: 0.7rem;
-        margin-left: 8px;
+    @media (max-width: 600px) {
+      #achievements .ach-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<div class="page-wrapper">
-  <div class="max-w-6xl mx-auto">
 
-    <!-- HERO SECTION -->
-    <section class="glass-card p-8 md:p-12 mb-8 visible">
-      <div class="flex flex-col md:flex-row items-center gap-10">
-        <div class="relative">
-          <img src="https://i.ibb.co/601HjzgT/Screenshot-2025-09-23-171133.png" 
-               alt="Prathamesh Thakur"
-               class="profile-img"
-               onerror="this.src='https://via.placeholder.com/180x180/667eea/ffffff?text=PT'"
-               loading="lazy">
-          
-          <!-- Canva Professional Badge Image - Positioned at bottom left of profile photo -->
-          <div class="absolute -bottom-2 -left-2 w-14 h-14 bg-white rounded-full border-4 border-white shadow-lg overflow-hidden cursor-pointer hover:scale-110 transition-transform certificate-clickable" onclick="showCertificate('canva-pro')">
-            <img src="https://i.ibb.co/Ndphmd5f/badge.webp" 
-                 alt="Canva Professional Badge"
-                 class="w-full h-full object-cover">
-          </div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-          <!-- Green Code Badge - Positioned at bottom right -->
-          <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
-            <i class="fas fa-code text-white text-sm"></i>
-          </div>
-        </div>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">PT<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-        <div class="flex-1 text-center md:text-left">
-          <h1 class="text-4xl md:text-5xl font-bold mb-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            Prathamesh Thakur
-          </h1>
-          
-          <p class="text-lg text-gray-600 mb-4">
-            Creative Tech Builder • Web Developer • Unity Game Developer • Passionate Editor
-          </p>
-          
-          <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-            <a href="https://github.com/livedashboardsite" target="_blank" rel="noopener noreferrer" class="social-link">
-              <i class="fab fa-github mr-2"></i>GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank" rel="noopener noreferrer" class="social-link">
-              <i class="fab fa-linkedin mr-2"></i>LinkedIn
-            </a>
-            <a href="mailto:prathameshthakur539@gmail.com" class="social-link">
-              <i class="fas fa-envelope mr-2"></i>Email
-            </a>
-            <a href="https://tryhackme.com/p/prathameshthakur539" target="_blank" rel="noopener noreferrer" class="social-link">
-              <i class="fas fa-shield-halved mr-2"></i>TryHackMe
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAIN GRID -->
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <!-- LEFT COLUMN -->
-      <div class="space-y-6">
-        
-        <!-- ACHIEVEMENTS & ACTIVITIES Card -->
-        <div class="glass-card p-6 visible">
-          <h2 class="section-title">
-            <i class="fas fa-trophy"></i> Achievements & Activities
-          </h2>
-          
-          <!-- Technical Achievements -->
-          <div class="mb-6">
-            <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <i class="fas fa-microchip text-purple-500"></i> Technical Achievements
-            </p>
-            <div class="space-y-3">
-              <!-- AWS School Team -->
-              <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 hover:shadow-md transition-shadow">
-                <div class="flex items-start gap-3">
-                  <div class="bg-purple-500 text-white rounded-lg p-2 text-sm">
-                    <i class="fab fa-aws"></i>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-gray-800">AWS Young Builders Challenge 2021</p>
-                    <p class="text-sm text-gray-700">Monthly Expenses Tracker</p>
-                    <p class="text-sm text-gray-600">AWS School Team Member</p>
-                    <p class="text-xs text-purple-600 font-medium mt-1">🏆 Ranked #97 among all schools over India</p>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Smart Gate System Award - CERTIFICATE CLICKABLE -->
-              <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-3 hover:shadow-md transition-shadow certificate-clickable" onclick="showCertificate('smart-gate')">
-                <div class="flex items-start gap-3">
-                  <div class="bg-yellow-500 text-white rounded-lg p-2">
-                    <i class="fas fa-trophy text-sm"></i>
-                  </div>
-                  <div class="flex-1">
-                    <p class="font-semibold text-gray-800">Smart Gate System Project</p>
-                    <p class="text-sm text-gray-700">PRAKALP-2025</p>
-                    <p class="text-sm text-gray-600">Secured Back-to-Back 1st Prize</p>
-                    <div class="flex flex-wrap gap-1 mt-1">
-                      <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 School Level</span>
-                      <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 Screening Level</span>
-                      <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">🏆 District Level (MPCOE)</span>
-                    </div>
-                    <span class="achievement-badge"><i class="fas fa-certificate"></i> View Certificate</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TryHackMe - CERTIFICATE CLICKABLE - FIXED -->
-              <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3 hover:shadow-md transition-shadow certificate-clickable" onclick="showCertificate('tryhackme')">
-                <div class="flex items-start gap-3">
-                  <div class="bg-indigo-500 text-white rounded-lg p-2 text-sm">
-                    <i class="fas fa-shield-halved"></i>
-                  </div>
-                  <div class="flex-1">
-                    <p class="font-semibold text-gray-800">TryHackMe — Cyber Security Learning</p>
-                    <div class="flex items-center gap-3 text-xs text-gray-700 mt-1">
-                      <span class="flex items-center gap-1"><i class="fas fa-fire text-orange-500"></i> 15 day Worked</span>
-                      <span class="flex items-center gap-1"><i class="fas fa-door-open text-blue-500"></i> 3 rooms</span>
-                      <span class="flex items-center gap-1"><i class="fas fa-ranking-star text-green-500"></i> Growth 8%</span>
-                    </div>
-                    <div class="mt-2 w-full bg-gray-200 rounded-full h-1.5">
-                      <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-1.5 rounded-full" style="width: 8%"></div>
-                    </div>
-                    <p class="text-xs text-indigo-600 font-medium mt-1">Level 4 · 380 points</p>
-                    <span class="achievement-badge"><i class="fas fa-certificate"></i> View Badge</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Editing & Design Achievements Section -->
-          <div class="mb-6">
-            <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <i class="fas fa-paint-brush text-pink-500"></i> Editing & Design
-            </p>
-            <div class="space-y-3">
-              <!-- Canva AI Certificate -->
-              <div class="bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl p-3 hover:shadow-md transition-shadow certificate-clickable" onclick="showCertificate('canva-ai')">
-                <div class="flex items-start gap-3">
-                  <div class="bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg p-2">
-                    <i class="fas fa-robot"></i>
-                  </div>
-                  <div class="flex-1">
-                    <p class="font-semibold text-gray-800">AI Skills for Students</p>
-                    <p class="text-sm text-gray-600">Canva · Completed: January 16, 2026</p>
-                    <div class="flex items-center gap-2 mt-2">
-                      <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full"><i class="fas fa-clock"></i> 1 hour 30 mins</span>
-                      <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full"><i class="fas fa-certificate"></i> Credential ID: 51af19</span>
-                    </div>
-                    <span class="achievement-badge"><i class="fas fa-certificate"></i> View Certificate</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Sports Achievements -->
-          <div class="mb-6">
-            <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <i class="fas fa-medal text-yellow-500"></i> Sports Achievements
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <div class="sport-tag badminton"><span class="mr-2">🏸</span> Badminton - Player Runner Up</div>
-              <div class="sport-tag football"><span class="mr-2">⚽</span> Football - District Level</div>
-              <div class="sport-tag tt"><span class="mr-2">🏓</span> Table Tennis - District Level</div>
-              <div class="sport-tag basketball"><span class="mr-2">🏀</span> Basketball - District Level</div>
-            </div>
-          </div>
-          
-          <!-- International Exposure -->
-          <div class="mb-6">
-            <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <i class="fas fa-globe-asia text-blue-500"></i> International Exposure
-            </p>
-            <div class="sport-tag afs certificate-clickable" onclick="showCertificate('afs')">
-              <i class="fas fa-globe-americas mr-2"></i>
-              AFS (American Field Service) Member 2024-25
-              <span class="achievement-badge ml-2"><i class="fas fa-certificate"></i> View Certificate</span>
-            </div>
-          </div>
-
-          <!-- Professional Certifications Section -->
-          <div>
-            <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <i class="fas fa-briefcase text-green-500"></i> Professional Certifications
-            </p>
-            <div class="bg-green-50 border border-green-200 rounded-xl p-3 hover:shadow-md transition-shadow certificate-clickable" onclick="showCertificate('funngro')">
-              <div class="flex items-start gap-3">
-                <div class="bg-green-500 text-white rounded-lg p-2">
-                  <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="flex-1">
-                  <p class="font-semibold text-gray-800">Funngro Teenlancher Certification</p>
-                  <p class="text-sm text-gray-600">Project Completion Certificate</p>
-                  <div class="flex items-center gap-2 mt-2">
-                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full"><i class="fas fa-check-circle"></i> Web Development</span>
-                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full"><i class="fas fa-check-circle"></i> 2 Months Internship</span>
-                  </div>
-                  <span class="achievement-badge"><i class="fas fa-certificate"></i> View Certificate</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TECH STACK Card -->
-        <div class="glass-card p-6 visible">
-          <h2 class="section-title"><i class="fas fa-code"></i> Tech Stack</h2>
-          <div class="space-y-4">
-            <div><p class="text-sm font-semibold text-gray-700 mb-2">Frontend</p><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Tailwind</span></div>
-            <div><p class="text-sm font-semibold text-gray-700 mb-2">Backend</p><span class="tech-tag">Python</span><span class="tech-tag">SQL</span></div>
-            <div><p class="text-sm font-semibold text-gray-700 mb-2">Game Dev</p><span class="tech-tag">Unity</span><span class="tech-tag">C#</span></div>
-            <div><p class="text-sm font-semibold text-gray-700 mb-2">Design Tools</p><span class="tech-tag">Canva</span><span class="tech-tag">Photoshop</span><span class="tech-tag">Figma</span></div>
-            
-            <!-- Productivity Tools Section -->
-            <div class="mt-4 pt-2 border-t border-gray-100">
-              <p class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2"><i class="fas fa-file-alt text-blue-500"></i> Productivity Tools</p>
-              <div class="mb-3">
-                <div class="flex justify-between items-center mb-1"><span class="text-xs font-medium text-gray-600 flex items-center gap-1"><i class="fab fa-microsoft text-blue-600"></i> Microsoft Office</span><span class="text-xs font-medium text-blue-600">Advanced</span></div>
-                <div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gradient-to-r from-blue-500 to-blue-600 h-1.5 rounded-full" style="width: 85%"></div></div>
-                <div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Word</span><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Excel</span><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">PowerPoint</span><span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">Outlook</span></div>
-              </div>
-              <div>
-                <div class="flex justify-between items-center mb-1"><span class="text-xs font-medium text-gray-600 flex items-center gap-1"><i class="fas fa-file-alt text-orange-600"></i> Apache OpenOffice</span><span class="text-xs font-medium text-orange-600">Intermediate</span></div>
-                <div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-gradient-to-r from-orange-500 to-orange-600 h-1.5 rounded-full" style="width: 75%"></div></div>
-                <div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Writer</span><span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Calc</span><span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded">Impress</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LANGUAGES Card -->
-        <div class="glass-card p-6 visible">
-          <h2 class="section-title"><i class="fas fa-language"></i> Languages</h2>
-          <ul class="custom-list"><li>English <span class="text-gray-400 text-sm">(Professional)</span></li><li>Hindi <span class="text-gray-400 text-sm">(Native)</span></li><li>Marathi <span class="text-gray-400 text-sm">(Native)</span></li></ul>
-        </div>
-
-        <!-- EDUCATION Card -->
-        <div class="glass-card p-6 visible">
-          <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-          <ul class="custom-list"><li><strong>Jindal Vidya Mandir, Ratnagiri</strong> – Class 10 (83.5%)</li><li><strong>Science Stream</strong> – Class 12 PCM</li></ul>
-        </div>
-
-        <!-- CONTACT Card -->
-        <div class="glass-card p-6 visible">
-          <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
-          <div class="contact-info"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text">Ratnagiri, Maharashtra</div></div>
-          <div class="contact-info"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><a href="mailto:prathameshthakur539@gmail.com">prathameshthakur539@gmail.com</a></div></div>
-          <div class="contact-info"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div class="contact-text"><a href="tel:+917745070380">+91 7745070380</a></div></div>
-          <div class="contact-info"><div class="contact-icon"><i class="fab fa-telegram"></i></div><div class="contact-text"><a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer">@prathamesh_thakur_emotion</a></div></div>
-          <div class="contact-info cursor-pointer" onclick="copyToClipboard('pratham.emotion')" title="Click to copy Discord username"><div class="contact-icon"><i class="fab fa-discord"></i></div><div class="contact-text">pratham.emotion <span class="text-xs text-gray-400 ml-2">(click to copy)</span></div></div>
-          <div class="contact-info"><div class="contact-icon"><i class="fab fa-instagram"></i></div><div class="contact-text"><a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer">@prathamesh_thakur_emotion</a></div></div>
-          <div class="mt-4 pt-2"><span class="availability-badge"><i class="fas fa-clock mr-1"></i> Available 3PM – 10PM</span></div>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer" class="social-badge"><i class="fab fa-telegram"></i> prathamesh_thakur_emotion</a>
-            <span onclick="copyToClipboard('pratham.emotion')" class="social-badge cursor-pointer" title="Click to copy Discord"><i class="fab fa-discord"></i> pratham.emotion</span>
-            <a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener noreferrer" class="social-badge"><i class="fab fa-instagram"></i> prathamesh_thakur_emotion</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="md:col-span-2 space-y-6">
-        <!-- Profile Card -->
-        <div class="glass-card p-8 visible">
-          <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
-          <p class="text-gray-600 leading-relaxed">Class 12 science student passionate about modern web development, game systems, and UI design. Experienced in internship-based website creation, freelance creative production, and Unity-based multiplayer development. Award-winning project developer with multiple district-level achievements. Certified in AI skills and professional design tools.</p>
-        </div>
-
-        <!-- Experience Card -->
-        <div class="glass-card p-8 visible">
-          <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-          <div class="exp-item"><div class="exp-title">Funngro Teenlancher</div><div class="exp-subtitle">2 Months · Web Development</div><ul class="custom-list mt-2"><li>Website UI development and optimization</li><li>Research & documentation structuring</li></ul></div>
-          <div class="exp-item"><div class="exp-title">YouTube Creator – Gaurav Suthar</div><div class="exp-subtitle">1 Month · Content Creation</div><ul class="custom-list mt-2"><li>Handwritten digital notes creation</li></ul></div>
-          <div class="exp-item"><div class="exp-title">Rahul Kadam – Voice Over Artist</div><div class="exp-subtitle">Part-time · Audio/Video</div><ul class="custom-list mt-2"><li>Audio mixing & video editing</li></ul></div>
-        </div>
-
-        <!-- STARTUP EXPERIENCE Card -->
-        <div class="glass-card p-8 visible">
-          <h2 class="section-title"><i class="fas fa-rocket"></i> Startup Experience</h2>
-          <div class="exp-item"><div class="exp-title">SWARLY – UI/UX Designer (Founding Team)</div><div class="exp-subtitle">2026–Present · Music Discovery Platform</div><ul class="custom-list mt-2"><li>Designing interactive user journeys and UI concepts for a regional-first Indian music discovery platform</li><li>Contributing to product ideation and early-stage validation discussions</li><li>Collaborating with frontend, backend, and strategy members</li><li>Focusing on animation-driven engagement and discovery flow design</li></ul></div>
-        </div>
-
-        <!-- Projects Card -->
-        <div class="glass-card p-8 visible">
-          <h2 class="section-title"><i class="fas fa-folder-open"></i> Projects</h2>
-          <div class="project-item"><strong class="text-gray-800">Smart Gate System (Version 2.0 – In Development)</strong><p class="text-gray-600 text-sm mt-1">Multi-award winning project - 1st prize at School, Screening, and District Level in Ratnagiri.</p></div>
-          <div class="project-item"><strong class="text-gray-800">Vehicle Dashboard System</strong><p class="text-gray-600 text-sm mt-1">Python-based vehicle entry logging with JSON & Excel export.</p></div>
-          <div class="project-item"><strong class="text-gray-800">3D Cricket Game (Ongoing)</strong><p class="text-gray-600 text-sm mt-1">Multiplayer Unity project (C# + Python) with gyroscope support and optimized for 2GB RAM devices.</p></div>
-          <div class="project-item"><strong class="text-gray-800">Event Landing Pages / Event Video Edits</strong><p class="text-gray-600 text-sm mt-1">Editing out teaser, invitation cards for school events since 2020 · Responsive HTML/CSS Council Members Revealing design with modern animations.</p></div>
-          <div class="project-item"><strong class="text-gray-800">AWS Project - Expenses Tracker</strong><p class="text-gray-600 text-sm mt-1">Created as part of AWS School Team </p></div>
-        </div>
-
-        <!-- LEADERSHIP & POSITIONS OF RESPONSIBILITY Card -->
-        <div class="glass-card p-8 visible">
-          <h2 class="section-title"><i class="fas fa-crown text-blue-500"></i> Leadership & Positions of Responsibility</h2>
-          <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500 transition-all"><div class="flex items-start gap-3"><div class="bg-blue-100 text-blue-600 rounded-lg p-3"><i class="fas fa-users fa-fw"></i></div><div class="flex-1"><div class="exp-title">House Vice Captain (2025–26)</div><div class="exp-subtitle">Jindal Vidya Mandir, Ratnagiri</div><ul class="custom-list mt-1"><li>Led inter-house coordination and student engagement activities</li><li>Assisted in organizing academic and cultural events</li><li>Acted as a communication bridge between faculty and students</li></ul></div></div></div>
-          <div class="exp-item border-l-4 border-blue-300 hover:border-blue-500 transition-all"><div class="flex items-start gap-3"><div class="bg-blue-100 text-blue-600 rounded-lg p-3"><i class="fas fa-gavel fa-fw"></i></div><div class="flex-1"><div class="exp-title">Vice Discipline Minister (2022–23)</div><div class="exp-subtitle">Jindal Vidya Mandir, Ratnagiri</div><ul class="custom-list mt-1"><li>Maintained discipline standards across campus</li><li>Coordinated with staff during school events</li><li>Developed leadership and accountability skills</li></ul></div></div></div>
-          <div class="exp-item border-l-4 border-yellow-300 hover:border-yellow-500 transition-all"><div class="flex items-start gap-3"><div class="bg-yellow-100 text-yellow-600 rounded-lg p-3"><i class="fas fa-award fa-fw"></i></div><div class="flex-1"><div class="exp-title">EAGLE Award – Top 5 Finalist</div><div class="exp-subtitle">Jindal Vidya Mandir</div><ul class="custom-list mt-1"><li>Recognized among top 5 students for leadership, conduct, and academic consistency</li></ul></div></div></div>
-          <div class="exp-item border-l-4 border-purple-300 hover:border-purple-500 transition-all"><div class="flex items-start gap-3"><div class="bg-purple-100 text-purple-600 rounded-lg p-3"><i class="fas fa-flask fa-fw"></i></div><div class="flex-1"><div class="exp-title">Science & Technology Exhibition – Team Leader</div><div class="exp-subtitle">2025 · Jindal Vidya Mandir, Ratnagiri</div><ul class="custom-list mt-1"><li>Led a 4-member team in project development</li><li>Delegated tasks strategically based on strengths</li><li>Refined and improved project presentation</li><li>Secured a strong competitive position</li></ul></div></div></div>
-        </div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Creative Developer · Ratnagiri, India</div>
+      <h1 class="hero-name">
+        Prathamesh<br>
+        <span class="italic">Thakur</span>
+      </h1>
+      <p class="hero-tagline">
+        Web developer, Unity game builder, and award-winning project creator. Turning ideas into experiences — one line of code at a time.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary"><i class="fas fa-arrow-down"></i> View Work</a>
+        <a href="mailto:prathameshthakur539@gmail.com" class="btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
       </div>
     </div>
 
-    <!-- INSPIRATIONAL QUOTE CARD -->
-    <div class="glass-card p-6 visible flex items-center justify-center min-h-[240px] mt-8">
-      <div class="text-center">
-        <i class="fas fa-quote-right text-3xl text-gray-200 mb-3"></i>
-        <p class="text-gray-400 italic text-sm leading-relaxed">"Building ideas<br>into reality,<br>one line at a time."</p>
-        <div class="mt-4 text-xs text-gray-300 font-mono">~ Prathamesh</div>
+    <div class="hero-profile-wrap">
+      <img src="https://i.ibb.co/601HjzgT/Screenshot-2025-09-23-171133.png"
+           alt="Prathamesh Thakur"
+           class="hero-profile-img"
+           onerror="this.src='https://via.placeholder.com/260x320/ede8de/1a1612?text=PT'">
+      <p class="hero-profile-label">Prathamesh Thakur · 2026</p>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label" data-num="01">About</div>
+    <h2 class="section-title reveal">A builder by <em>nature,</em><br>a creator by choice.</h2>
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <p>Class 12 Science student from Ratnagiri, Maharashtra, passionate about modern web development, game systems, and UI design. I've been building digital experiences — from school event pages to multiplayer Unity games — since 2020.</p>
+        <p>Co-founder & UI/UX Designer at SWARLY, a regional-first Indian music discovery platform. Award-winning project developer with recognition at school, screening, and district levels.</p>
+        <p>Certified in AI skills, professional design tools, and actively expanding into cybersecurity and freelance development.</p>
+      </div>
+      <div class="about-meta reveal reveal-delay-1">
+        <div class="meta-row">
+          <span class="meta-label">Location</span>
+          <span class="meta-value">Ratnagiri, Maharashtra, India</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Education</span>
+          <span class="meta-value">Jindal Vidya Mandir · Class 12 PCM Science</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">College</span>
+          <span class="meta-value">Vedam School of Technology · B.Tech CSE AI (2026)</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Startup</span>
+          <span class="meta-value">SWARLY · UI/UX Designer (Founding Team)</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Languages</span>
+          <span class="meta-value">English, Hindi, Marathi</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Availability</span>
+          <span class="meta-value"><span class="availability-dot"></span>3 PM – 10 PM (IST)</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Links</span>
+          <span class="meta-value">
+            <a href="https://github.com/livedashboardsite" target="_blank" style="color:var(--accent);text-decoration:none;">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank" style="color:var(--accent);text-decoration:none;">LinkedIn</a> ·
+            <a href="https://tryhackme.com/p/prathameshthakur539" target="_blank" style="color:var(--accent);text-decoration:none;">TryHackMe</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TECH STACK -->
+  <section id="stack">
+    <div class="section-label" data-num="02">Stack</div>
+    <h2 class="section-title reveal">Tools of the <em>trade.</em></h2>
+    <div class="stack-grid reveal">
+      <div class="stack-cell">
+        <span class="stack-cell-label">Frontend</span>
+        <div class="stack-cell-tags">
+          <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Tailwind</span>
+        </div>
+      </div>
+      <div class="stack-cell">
+        <span class="stack-cell-label">Backend</span>
+        <div class="stack-cell-tags">
+          <span>Python</span><span>SQL</span>
+        </div>
+      </div>
+      <div class="stack-cell">
+        <span class="stack-cell-label">Game Dev</span>
+        <div class="stack-cell-tags">
+          <span>Unity</span><span>C#</span>
+        </div>
+      </div>
+      <div class="stack-cell">
+        <span class="stack-cell-label">Design</span>
+        <div class="stack-cell-tags">
+          <span>Canva</span><span>Photoshop</span><span>Figma</span>
+        </div>
+      </div>
+      <div class="stack-cell">
+        <span class="stack-cell-label">Productivity</span>
+        <div class="stack-cell-tags">
+          <span>MS Office</span><span>OpenOffice</span><span>LaTeX</span>
+        </div>
+      </div>
+      <div class="stack-cell">
+        <span class="stack-cell-label">Security</span>
+        <div class="stack-cell-tags">
+          <span>TryHackMe</span><span>Linux Basics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label" data-num="03">Experience</div>
+    <h2 class="section-title reveal">Where I've <em>worked.</em></h2>
+    <div class="exp-list">
+      <div class="exp-row reveal">
+        <div class="exp-year">2026 – Present</div>
+        <div class="exp-info">
+          <div class="exp-info-title">SWARLY — UI/UX Designer (Founding Team)</div>
+          <div class="exp-info-sub">Music Discovery Platform · Startup</div>
+          <div class="exp-info-desc">Designing interactive user journeys and UI concepts for a regional-first Indian music discovery platform. Contributing to product ideation, animation-driven engagement flows, and early-stage validation discussions.</div>
+        </div>
+        <div class="exp-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="exp-row reveal reveal-delay-1">
+        <div class="exp-year">2 Months</div>
+        <div class="exp-info">
+          <div class="exp-info-title">Funngro Teenlancher</div>
+          <div class="exp-info-sub">Web Development Internship</div>
+          <div class="exp-info-desc">Website UI development and optimization. Research & documentation structuring. Received official project completion certification.</div>
+        </div>
+        <div class="exp-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="exp-row reveal reveal-delay-2">
+        <div class="exp-year">1 Month</div>
+        <div class="exp-info">
+          <div class="exp-info-title">YouTube Creator — Gaurav Suthar</div>
+          <div class="exp-info-sub">Content Creation</div>
+          <div class="exp-info-desc">Handwritten digital notes creation for educational content.</div>
+        </div>
+        <div class="exp-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="exp-row reveal reveal-delay-3">
+        <div class="exp-year">Part-time</div>
+        <div class="exp-info">
+          <div class="exp-info-title">Rahul Kadam — Voice Over Artist</div>
+          <div class="exp-info-sub">Audio / Video Production</div>
+          <div class="exp-info-desc">Audio mixing & video editing for voice over projects.</div>
+        </div>
+        <div class="exp-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="exp-row reveal reveal-delay-4">
+        <div class="exp-year">2020 – Present</div>
+        <div class="exp-info">
+          <div class="exp-info-title">Jindal Vidya Mandir — School Marketing Team</div>
+          <div class="exp-info-sub">Design & Content Creation</div>
+          <div class="exp-info-desc">Designing event teaser videos, invitation cards, and responsive landing pages for school events since Class 7.</div>
+        </div>
+        <div class="exp-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label" data-num="04">Projects</div>
+    <h2 class="section-title reveal">Things I've <em>built.</em></h2>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="proj-num">01</div>
+        <div class="proj-title">Smart Gate System v2.0</div>
+        <div class="proj-desc">Multi-award winning automation project. 1st Prize at School, Screening, and District Level (MPCOE Ratnagiri) in PRAKALP-2025. Version 2.0 currently in development.</div>
+        <div class="proj-tags"><span>Hardware</span><span>Automation</span><span>IoT</span></div>
+      </div>
+      <div class="project-card reveal reveal-delay-1">
+        <div class="proj-num">02</div>
+        <div class="proj-title">3D Cricket Game</div>
+        <div class="proj-desc">Ongoing multiplayer Unity project built with C# and Python backend. Features gyroscope support and is optimized to run on 2GB RAM devices.</div>
+        <div class="proj-tags"><span>Unity</span><span>C#</span><span>Python</span><span>Multiplayer</span></div>
+      </div>
+      <div class="project-card reveal reveal-delay-2">
+        <div class="proj-num">03</div>
+        <div class="proj-title">Vehicle Dashboard System</div>
+        <div class="proj-desc">Python-based vehicle entry logging system with JSON and Excel export functionality. Built for local use cases.</div>
+        <div class="proj-tags"><span>Python</span><span>JSON</span><span>Excel</span></div>
+      </div>
+      <div class="project-card reveal reveal-delay-3">
+        <div class="proj-num">04</div>
+        <div class="proj-title">Event Landing Pages & Video Edits</div>
+        <div class="proj-desc">Responsive HTML/CSS event pages with modern animations. Teaser videos, invitation cards, and council-reveal designs for school events since 2020.</div>
+        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>Video Editing</span></div>
+      </div>
+      <div class="project-card reveal reveal-delay-1">
+        <div class="proj-num">05</div>
+        <div class="proj-title">BYTE — AI Coding Assistant</div>
+        <div class="proj-desc">Single-file HTML/CSS/JS AI-powered coding assistant built using the Claude API. Served via a local Python server to handle CORS.</div>
+        <div class="proj-tags"><span>Claude API</span><span>JavaScript</span><span>Python</span></div>
+      </div>
+      <div class="project-card reveal reveal-delay-2">
+        <div class="proj-num">06</div>
+        <div class="proj-title">AWS Expenses Tracker</div>
+        <div class="proj-desc">Monthly expenses tracking application built as part of the AWS Young Builders Challenge 2021. Contributed to ranking #97 among all schools in India.</div>
+        <div class="proj-tags"><span>AWS</span><span>Cloud</span><span>Finance</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-label" data-num="05">Awards & Certs</div>
+    <h2 class="section-title reveal">Proof of <em>work.</em></h2>
+    <div class="ach-grid">
+      <div class="ach-card reveal" onclick="showCert('smart-gate')">
+        <div class="ach-icon"><i class="fas fa-trophy"></i></div>
+        <div class="ach-title">Smart Gate — 1st Prize</div>
+        <div class="ach-sub">PRAKALP-2025 · District Level</div>
+        <div class="ach-desc">Back-to-back 1st Prize at School, Screening & District Level (MPCOE Ratnagiri).</div>
+        <div class="ach-badge">View Certificate →</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-1">
+        <div class="ach-icon"><i class="fab fa-aws"></i></div>
+        <div class="ach-title">AWS Young Builders 2021</div>
+        <div class="ach-sub">National · #97 Rank</div>
+        <div class="ach-desc">Ranked #97 among all school teams across India for Monthly Expenses Tracker.</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-2" onclick="showCert('canva-ai')">
+        <div class="ach-icon"><i class="fas fa-robot"></i></div>
+        <div class="ach-title">AI Skills for Students</div>
+        <div class="ach-sub">Canva · Jan 16, 2026</div>
+        <div class="ach-desc">1.5-hour certified course. Credential ID: 51af19. Issued by The Canva Team.</div>
+        <div class="ach-badge">View Certificate →</div>
+      </div>
+      <div class="ach-card reveal" onclick="showCert('tryhackme')">
+        <div class="ach-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="ach-title">TryHackMe — Level 4</div>
+        <div class="ach-sub">Cybersecurity · 380 pts</div>
+        <div class="ach-desc">15-day streak, 3 rooms completed, Top 8% growth. Actively learning offensive & defensive security.</div>
+        <div class="ach-badge">View Badge →</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-1" onclick="showCert('afs')">
+        <div class="ach-icon"><i class="fas fa-globe-asia"></i></div>
+        <div class="ach-title">AFS Member 2024–25</div>
+        <div class="ach-sub">American Field Service</div>
+        <div class="ach-desc">Active Member — intercultural programs and international exposure initiative.</div>
+        <div class="ach-badge">View Certificate →</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-2" onclick="showCert('funngro')">
+        <div class="ach-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="ach-title">Funngro Certification</div>
+        <div class="ach-sub">Web Dev Internship · 2 Months</div>
+        <div class="ach-desc">Project Completion Certificate. Awarded by CEO & Founder, Funngro Teenlancher.</div>
+        <div class="ach-badge">View Certificate →</div>
       </div>
     </div>
 
-    <footer class="footer">
-      © 2026 Prathamesh Thakur · Built with <i class="fas fa-heart text-red-500"></i> and creativity
-    </footer>
+    <!-- Sports -->
+    <div style="margin-top:4rem;" class="reveal">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ink);margin-bottom:1.5rem;">Sports <em style="font-style:italic;color:var(--ink-mid)">& Activities</em></h3>
+      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+        <span style="font-size:0.78rem;border:1px solid var(--cream-darker);padding:0.4rem 1rem;font-family:'DM Mono',monospace;color:var(--ink-mid);">🏸 Badminton — Runner Up</span>
+        <span style="font-size:0.78rem;border:1px solid var(--cream-darker);padding:0.4rem 1rem;font-family:'DM Mono',monospace;color:var(--ink-mid);">⚽ Football — District Level</span>
+        <span style="font-size:0.78rem;border:1px solid var(--cream-darker);padding:0.4rem 1rem;font-family:'DM Mono',monospace;color:var(--ink-mid);">🏓 Table Tennis — District Level</span>
+        <span style="font-size:0.78rem;border:1px solid var(--cream-darker);padding:0.4rem 1rem;font-family:'DM Mono',monospace;color:var(--ink-mid);">🏀 Basketball — District Level</span>
+        <span style="font-size:0.78rem;border:1px solid var(--cream-darker);padding:0.4rem 1rem;font-family:'DM Mono',monospace;color:var(--ink-mid);">🌍 AFS International Exchange 2024–25</span>
+      </div>
+    </div>
+  </section>
 
+  <div class="divider"></div>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="section-label" data-num="06">Leadership</div>
+    <h2 class="section-title reveal">Beyond the <em>screen.</em></h2>
+    <div class="lead-grid">
+      <div class="lead-row reveal">
+        <div class="lead-icon"><i class="fas fa-crown"></i></div>
+        <div>
+          <div class="lead-title">House Vice Captain (2025–26)</div>
+          <div class="lead-sub">Jindal Vidya Mandir, Ratnagiri</div>
+          <div class="lead-desc">Led inter-house coordination and student engagement. Communication bridge between faculty and students during academic and cultural events.</div>
+        </div>
+      </div>
+      <div class="lead-row reveal reveal-delay-1">
+        <div class="lead-icon"><i class="fas fa-gavel"></i></div>
+        <div>
+          <div class="lead-title">Vice Discipline Minister (2022–23)</div>
+          <div class="lead-sub">Jindal Vidya Mandir, Ratnagiri</div>
+          <div class="lead-desc">Maintained campus discipline standards and coordinated with staff during school events. Developed accountability and leadership skills.</div>
+        </div>
+      </div>
+      <div class="lead-row reveal reveal-delay-2">
+        <div class="lead-icon"><i class="fas fa-award"></i></div>
+        <div>
+          <div class="lead-title">EAGLE Award — Top 5 Finalist</div>
+          <div class="lead-sub">Jindal Vidya Mandir</div>
+          <div class="lead-desc">Recognized among top 5 students for leadership, conduct, and academic consistency.</div>
+        </div>
+      </div>
+      <div class="lead-row reveal reveal-delay-3">
+        <div class="lead-icon"><i class="fas fa-flask"></i></div>
+        <div>
+          <div class="lead-title">Science & Tech Exhibition — Team Leader</div>
+          <div class="lead-sub">PRAKALP-2025 · Jindal Vidya Mandir</div>
+          <div class="lead-desc">Led a 4-member team. Strategic task delegation, project refinement, and competitive presentation. Secured district-level recognition.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" data-num="07">Contact</div>
+    <div class="contact-inner reveal">
+      <div>
+        <h2 class="contact-heading">Let's build something <em>together.</em></h2>
+        <p class="contact-sub">Open to freelance projects, collaborations, and internship opportunities. Reach out anytime between 3 PM – 10 PM IST.</p>
+        <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+          <a href="https://github.com/livedashboardsite" target="_blank" rel="noopener" style="font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;">GitHub ↗</a>
+          <span style="color:var(--ink-faint)">·</span>
+          <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank" rel="noopener" style="font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;">LinkedIn ↗</a>
+          <span style="color:var(--ink-faint)">·</span>
+          <a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank" rel="noopener" style="font-size:0.72rem;font-family:'DM Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;">Instagram ↗</a>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:prathameshthakur539@gmail.com" class="contact-link">
+          <span class="cl-icon"><i class="fas fa-envelope"></i></span>
+          <span class="cl-label">Email</span>
+          <span class="cl-value">prathameshthakur539@gmail.com</span>
+          <span class="cl-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="tel:+917745070380" class="contact-link">
+          <span class="cl-icon"><i class="fas fa-phone"></i></span>
+          <span class="cl-label">Phone</span>
+          <span class="cl-value">+91 7745070380</span>
+          <span class="cl-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="https://t.me/prathamesh_thakur_emotion" target="_blank" rel="noopener" class="contact-link">
+          <span class="cl-icon"><i class="fab fa-telegram"></i></span>
+          <span class="cl-label">Telegram</span>
+          <span class="cl-value">@prathamesh_thakur_emotion</span>
+          <span class="cl-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <div class="contact-link" onclick="copyToClipboard('pratham.emotion')" style="cursor:pointer;">
+          <span class="cl-icon"><i class="fab fa-discord"></i></span>
+          <span class="cl-label">Discord</span>
+          <span class="cl-value">pratham.emotion</span>
+          <span class="cl-arrow"><i class="fas fa-copy"></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Prathamesh Thakur</span>
+    <span>"Building ideas into reality, one line at a time."</span>
+    <span><a href="mailto:prathameshthakur539@gmail.com">prathameshthakur539@gmail.com</a></span>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="certModal" class="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div id="modalInner"></div>
+    </div>
   </div>
-</div>
 
-<!-- Certificate Modal Overlay -->
-<div id="certificateModal" class="modal-overlay" onclick="closeModalOnClickOutside(event)">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeCertificateModal()">
-      <i class="fas fa-times"></i>
-    </button>
-    <div id="modalContent" class="space-y-4">
-      <!-- Content will be dynamically inserted here -->
-    </div>
-  </div>
-</div>
+  <!-- TOAST -->
+  <div id="toast" class="toast">Copied to clipboard!</div>
 
-<!-- Toast notification element -->
-<div id="toast" class="toast-message">Copied to clipboard!</div>
-
-<!-- Script for functionality -->
-<script>
-  function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(function() {
-      const toast = document.getElementById('toast');
-      toast.style.display = 'block';
-      toast.textContent = 'Discord username copied: ' + text;
-      setTimeout(function() { toast.style.display = 'none'; }, 2000);
-    }, function() {
-      prompt('Copy this Discord username:', text);
-    });
-  }
-
-  // Certificate data with your actual image URLs - FIXED TryHackMe URL
-  const certificates = {
-    'smart-gate': {
-      title: 'Smart Gate System Project - 1st Prize Certificate',
-      imageUrl: 'https://i.ibb.co/ynXp3yDb/CR.png',
-      description: 'Awarded for securing 1st Prize at School, Screening, and District Level in PRAKALP-2025'
-    },
-    'tryhackme': {
-      title: 'TryHackMe - Cyber Security Badge',
-      imageUrl: 'https://i.ibb.co/RTTp4f9m/Untitled-design.png', // FIXED: Removed the <a> tag, just the URL string
-      description: 'Level 4 Cyber Security Practitioner with 380 points, 15-day streak, and 4 rooms completed'
-    },
-    'afs': {
-      title: 'AFS (American Field Service) Membership Certificate',
-      imageUrl: 'https://i.ibb.co/HT2Y60kK/Prathamesh-Thakur.png',
-      description: 'Active Member 2024-2025 - Intercultural Programs'
-    },
-    'funngro': {
-      title: 'Funngro Teenlancher Certification',
-      imageUrl: 'https://i.ibb.co/d4bWDYSY/fungtt.png',
-      description: 'Project Completion Certificate - Web Development Internship (2 Months) - Awarded by CEO & Founder, Funngro'
-    },
-    'canva-ai': {
-      title: 'AI Skills for Students - Canva Certificate',
-      imageUrl: 'https://i.ibb.co/HD7RtzJ7/sa.png',
-      description: 'Completed: January 16, 2026 · 1 hour 30 minutes training · Credential ID: 51af19 · Presented by The Canva Team'
-    },
-    'canva-pro': {
-      title: 'Canva Professional Badge',
-      imageUrl: 'https://i.ibb.co/Ndphmd5f/badge.webp',
-      description: 'Certified Canva Professional - Expert in design tools and creative content creation'
+  <script>
+    // ─── CURSOR ───
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx - 5 + 'px'; cursor.style.top = my - 5 + 'px'; });
+    function animRing() {
+      rx += (mx - rx - 18) * 0.12;
+      ry += (my - ry - 18) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
     }
-  };
+    animRing();
 
-  // Show certificate modal
-  function showCertificate(certId) {
-    const modal = document.getElementById('certificateModal');
-    const modalContent = document.getElementById('modalContent');
-    const certificate = certificates[certId];
-    
-    if (certificate) {
-      modalContent.innerHTML = `
-        <h2 class="modal-title">${certificate.title}</h2>
-        <div class="certificate-image-container">
-          <img src="${certificate.imageUrl}" 
-               alt="${certificate.title}"
-               class="certificate-img"
-               onclick="openImageInNewTab('${certificate.imageUrl}')"
-               loading="lazy"
-               onerror="this.src='https://via.placeholder.com/800x600/ffcccc/000000?text=Certificate+Image+Not+Found'">
-          <div class="image-controls">
-            <button class="image-control-btn" onclick="openImageInNewTab('${certificate.imageUrl}')">
-              <i class="fas fa-external-link-alt"></i> Open in new tab
-            </button>
-            <button class="image-control-btn" onclick="downloadCertificate('${certificate.imageUrl}', '${certId}')">
-              <i class="fas fa-download"></i> Download
-            </button>
-          </div>
-          <p class="text-gray-600 mt-4 text-sm">${certificate.description}</p>
+    // ─── NAV SCROLL ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── SCROLL REVEAL ───
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ─── CERTS DATA ───
+    const certs = {
+      'smart-gate': {
+        title: 'Smart Gate System — 1st Prize Certificate',
+        img: 'https://i.ibb.co/ynXp3yDb/CR.png',
+        desc: 'Awarded for securing 1st Prize at School, Screening, and District Level in PRAKALP-2025 (MPCOE Ratnagiri)'
+      },
+      'tryhackme': {
+        title: 'TryHackMe — Cyber Security Badge',
+        img: 'https://i.ibb.co/RTTp4f9m/Untitled-design.png',
+        desc: 'Level 4 · 380 Points · 15-day streak · 3 rooms completed'
+      },
+      'afs': {
+        title: 'AFS (American Field Service) Membership Certificate',
+        img: 'https://i.ibb.co/HT2Y60kK/Prathamesh-Thakur.png',
+        desc: 'Active Member 2024–2025 — Intercultural Programs'
+      },
+      'funngro': {
+        title: 'Funngro Teenlancher Certification',
+        img: 'https://i.ibb.co/d4bWDYSY/fungtt.png',
+        desc: 'Project Completion Certificate — Web Development Internship (2 Months). Awarded by CEO & Founder, Funngro'
+      },
+      'canva-ai': {
+        title: 'AI Skills for Students — Canva Certificate',
+        img: 'https://i.ibb.co/HD7RtzJ7/sa.png',
+        desc: 'Completed: January 16, 2026 · 1h 30min · Credential ID: 51af19 · Issued by The Canva Team'
+      }
+    };
+
+    function showCert(id) {
+      const c = certs[id];
+      if (!c) return;
+      document.getElementById('modalInner').innerHTML = `
+        <h2 class="modal-cert-title">${c.title}</h2>
+        <img src="${c.img}" alt="${c.title}" class="modal-cert-img" onerror="this.src='https://via.placeholder.com/800x500/f5f0e8/1a1612?text=Certificate+Not+Found'">
+        <p class="modal-cert-desc">${c.desc}</p>
+        <div class="modal-cert-actions">
+          <button class="modal-btn" onclick="window.open('${c.img}','_blank')"><i class="fas fa-external-link-alt"></i> Open</button>
+          <button class="modal-btn" onclick="downloadCert('${c.img}','${id}')"><i class="fas fa-download"></i> Download</button>
         </div>
       `;
+      document.getElementById('certModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
 
-  // Open image in new tab
-  function openImageInNewTab(imageUrl) {
-    window.open(imageUrl, '_blank');
-  }
-
-  // Download certificate
-  function downloadCertificate(imageUrl, certId) {
-    const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = `${certId}-certificate.jpg`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
-  // Close certificate modal
-  function closeCertificateModal() {
-    const modal = document.getElementById('certificateModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  // Close modal when clicking outside
-  function closeModalOnClickOutside(event) {
-    if (event.target.classList.contains('modal-overlay')) {
-      closeCertificateModal();
+    function closeModal() {
+      document.getElementById('certModal').classList.remove('active');
+      document.body.style.overflow = '';
     }
-  }
+    function closeModalOutside(e) { if (e.target.classList.contains('modal-overlay')) closeModal(); }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  // Close modal with Escape key
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      closeCertificateModal();
+    function downloadCert(url, id) {
+      const a = document.createElement('a');
+      a.href = url; a.download = id + '-certificate.jpg';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
     }
-  });
 
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.glass-card').forEach(card => card.classList.add('visible'));
-  });
-</script>
-
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const t = document.getElementById('toast');
+        t.textContent = 'Copied: ' + text;
+        t.style.display = 'block';
+        setTimeout(() => { t.style.display = 'none'; }, 2500);
+      }).catch(() => prompt('Copy this:', text));
+    }
+  </script>
 </body>
 </html>
-
-
