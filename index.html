@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +18,31 @@
   --bg:#fafaf8;--bg2:#fff;--ink:#0d0d0d;--ink2:#2a2a2a;--muted:#888;
   --red:#ff3b2f;--orange:#ff6b00;--yellow:#ffd600;--green:#00c875;
   --blue:#0057ff;--purple:#7c3aed;--pink:#ff2d78;--teal:#00bfa6;
-  --s1:#fff8f0;--s2:#f0fff8;--s3:#f5f0ff;--s4:#fff0f5;--s5:#f0f8ff;--s6:#fffde8;
+  --s1:#fff8f0;--s2:#f0fff8;--s3:#f5f0ff;--s4:#fff0f5;--s5:#f0f8ff;--s6:#fffde8;--s7:#fafaf8;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Cabinet Grotesk',sans-serif;overflow-x:hidden;cursor:none}
-#cur{width:12px;height:12px;background:var(--red);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transition:transform .12s ease,background .2s;mix-blend-mode:multiply}
-#cur-ring{width:40px;height:40px;border:1.5px solid var(--red);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transition:width .25s,height .25s,border-color .2s;opacity:.5}
-body.hovering #cur{transform:scale(3.5);background:var(--yellow)}
-body.hovering #cur-ring{width:64px;height:64px;border-color:var(--yellow)}
-body.clicking #cur{transform:scale(.4)}
+/* Custom ✦ star cursor */
+#cur{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:99999;
+  font-size:1.3rem;line-height:1;
+  transform:translate(-50%,-50%);
+  transition:transform .12s ease, font-size .15s ease, filter .15s ease;
+  user-select:none;
+  filter:drop-shadow(0 0 4px rgba(255,59,47,.5));
+}
+#cur-ring{display:none}
+body.hovering #cur{transform:translate(-50%,-50%) scale(1.5) rotate(30deg);filter:drop-shadow(0 0 8px rgba(255,214,0,.8));font-size:1.6rem}
+body.clicking #cur{transform:translate(-50%,-50%) scale(0.6) rotate(-15deg)}
+/* Play cursor on showreel area */
+.showreel-section-wrap{cursor:none}
+#play-cur{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:99999;
+  display:none;
+  transform:translate(-50%,-50%);
+  transition:transform .1s ease;
+}
+#play-cur svg{filter:drop-shadow(0 0 6px rgba(255,59,47,.7))}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9000}
 nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 3rem;display:flex;align-items:center;justify-content:space-between;z-index:500;transition:all .3s}
 nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:1rem 3rem}
@@ -219,6 +236,78 @@ nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(20px);border-
 .lc-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);margin-bottom:.2rem}
 .lc-sub{font-size:.72rem;font-weight:700;color:var(--red);margin-bottom:.4rem}
 .lc-desc{font-size:.8rem;font-weight:500;color:var(--ink2);line-height:1.6}
+
+/* =============================================
+   SHOWREEL SECTION — matches site palette
+   ============================================= */
+.showreel-section-wrap{background:var(--s7);border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06)}
+.showreel-inner{max-width:1200px;margin:0 auto;padding:7rem 3rem;display:flex;flex-direction:column;align-items:center;gap:3rem}
+.showreel-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.6rem;font-weight:700;align-self:flex-start}
+.showreel-label::before{content:'08';color:var(--muted);font-size:.62rem}
+.showreel-title{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--ink);align-self:flex-start}
+.showreel-title em{font-style:italic;color:var(--muted)}
+
+/* Orbit stage */
+.showreel-stage{position:relative;width:420px;height:420px;display:flex;align-items:center;justify-content:center}
+
+/* Orbit rings — use site ink color with low opacity */
+.sr-orbit{position:absolute;border-radius:50%;border:1.5px dashed;animation:srSpin linear infinite}
+.sr-orbit:nth-child(1){width:400px;height:400px;border-color:rgba(13,13,13,.1);animation-duration:20s}
+.sr-orbit:nth-child(2){width:330px;height:330px;border-color:rgba(255,59,47,.2);animation-duration:14s;animation-direction:reverse}
+.sr-orbit:nth-child(3){width:260px;height:260px;border-color:rgba(0,87,255,.2);animation-duration:22s}
+@keyframes srSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Orbit dots */
+.sr-orbit::before{content:'';position:absolute;width:9px;height:9px;border-radius:50%;top:-4.5px;left:50%;transform:translateX(-50%)}
+.sr-orbit:nth-child(1)::before{background:var(--red);box-shadow:0 0 8px var(--red)}
+.sr-orbit:nth-child(2)::before{background:var(--blue);box-shadow:0 0 8px var(--blue)}
+.sr-orbit:nth-child(3)::before{background:var(--green);box-shadow:0 0 8px var(--green)}
+
+/* Floating skill badges */
+.sr-badge{position:absolute;font-size:.72rem;font-weight:800;background:white;border:2px solid var(--ink);border-radius:100px;padding:.28rem .8rem;box-shadow:3px 3px 0 var(--ink);animation:srBadgeFloat 3s ease-in-out infinite alternate;z-index:5;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.sr-badge:nth-child(4){top:28px;left:20px;animation-delay:0s;background:var(--yellow)}
+.sr-badge:nth-child(5){top:28px;right:20px;animation-delay:.8s;background:var(--green);color:white}
+.sr-badge:nth-child(6){bottom:40px;left:28px;animation-delay:1.5s;background:var(--red);color:white}
+.sr-badge:nth-child(7){bottom:40px;right:28px;animation-delay:.4s;background:var(--blue);color:white}
+@keyframes srBadgeFloat{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-10px) rotate(3deg)}}
+
+/* Avatar circle */
+.sr-avatar{position:relative;width:210px;height:210px;border-radius:50%;overflow:hidden;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);cursor:none;z-index:4;background:#fff8f0;transition:transform .25s,box-shadow .25s}
+.sr-avatar:hover{transform:scale(1.06);box-shadow:8px 8px 0 var(--ink)}
+.sr-avatar svg{width:100%;height:100%}
+
+/* SVG animations */
+.sr-body-grp{animation:srBounce 2.2s ease-in-out infinite;transform-origin:center bottom}
+@keyframes srBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.sr-eye-l,.sr-eye-r{animation:srBlink 4s ease-in-out infinite;transform-origin:center}
+@keyframes srBlink{0%,88%,100%{transform:scaleY(1)}93%{transform:scaleY(0.08)}}
+.sr-hair{animation:srHair 3s ease-in-out infinite;transform-origin:105px 75px}
+@keyframes srHair{0%,100%{transform:rotate(0deg)}50%{transform:rotate(2.5deg)}}
+
+/* Play button */
+.sr-play-btn{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:white;border:2px solid var(--ink);border-radius:100px;padding:.5rem 1.2rem;font-family:'Cabinet Grotesk',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;cursor:none;z-index:10;white-space:nowrap;box-shadow:3px 3px 0 var(--red);transition:all .2s;animation:srPlayPulse 2.5s ease-in-out infinite}
+.sr-play-btn:hover{background:var(--red);border-color:var(--red);transform:translateX(-50%) translateY(-2px);box-shadow:4px 4px 0 var(--ink)}
+@keyframes srPlayPulse{0%,100%{box-shadow:3px 3px 0 var(--red)}50%{box-shadow:3px 3px 0 var(--red),0 0 18px rgba(255,59,47,.35)}}
+.sr-play-icon{width:20px;height:20px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.sr-play-btn:hover .sr-play-icon{background:white}
+.sr-play-btn:hover .sr-play-icon svg path{fill:var(--red)}
+
+/* Modal */
+.sr-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);z-index:8500;align-items:center;justify-content:center;padding:1.5rem}
+.sr-modal-bg.active{display:flex}
+.sr-modal-box{position:relative;width:min(840px,94vw);aspect-ratio:16/9;background:var(--ink);border-radius:20px;border:2px solid rgba(255,255,255,.1);overflow:hidden;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 40px 80px rgba(0,0,0,.7)}
+.sr-modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:50%;color:white;font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s,transform .2s}
+.sr-modal-close:hover{background:var(--red);transform:rotate(90deg)}
+
+/* Video placeholder */
+.sr-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:radial-gradient(ellipse at center,#1a1a1a 0%,var(--ink) 100%)}
+.sr-ph-ring{width:72px;height:72px;border-radius:50%;border:2px dashed rgba(255,59,47,.5);display:flex;align-items:center;justify-content:center;animation:srSpin 6s linear infinite}
+.sr-ph-ring svg{animation:srSpin 6s linear infinite reverse}
+.sr-ph-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.12em}
+.sr-ph-code{font-size:.72rem;color:rgba(255,255,255,.25);font-family:monospace;background:rgba(255,255,255,.05);padding:5px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.08)}
+
+/* ============================================= */
+
 .contact-section{background:var(--ink)}
 .contact-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
 .contact-big{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;letter-spacing:-.04em;line-height:.95;color:white;margin-bottom:1.5rem}
@@ -276,6 +365,12 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
   .ach-grid,.lead-grid{grid-template-columns:1fr}
   footer{padding:2.5rem 1.5rem 0}
   .footer-row{flex-direction:column;gap:1.5rem}
+  .showreel-inner{padding:5rem 1.5rem}
+  .showreel-stage{width:320px;height:320px}
+  .sr-orbit:nth-child(1){width:310px;height:310px}
+  .sr-orbit:nth-child(2){width:255px;height:255px}
+  .sr-orbit:nth-child(3){width:200px;height:200px}
+  .sr-avatar{width:170px;height:170px}
 }
 @media(max-width:600px){
   .bento{grid-template-columns:1fr}
@@ -285,8 +380,15 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
 </style>
 </head>
 <body>
-<div id="cur"></div>
+<div id="cur">✦</div>
 <div id="cur-ring"></div>
+<!-- Play cursor for showreel -->
+<div id="play-cur">
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="22" fill="var(--ink)" stroke="white" stroke-width="2"/>
+    <polygon points="19,14 35,24 19,34" fill="white"/>
+  </svg>
+</div>
 
 <nav id="navbar">
   <a href="#" class="nav-logo">PT<sup>®</sup></a>
@@ -302,7 +404,8 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
       <a href="#ach-sec" onclick="closeMenu()">Awards <span class="num">04</span></a>
       <a href="#exp-sec" onclick="closeMenu()">Experience <span class="num">05</span></a>
       <a href="#lead-sec" onclick="closeMenu()">Leadership <span class="num">06</span></a>
-      <a href="#contact-sec" onclick="closeMenu()">Contact <span class="num">07</span></a>
+      <a href="#showreel-sec" onclick="closeMenu()">Showreel <span class="num">07</span></a>
+      <a href="#contact-sec" onclick="closeMenu()">Contact <span class="num">08</span></a>
     </div>
   </div>
 </nav>
@@ -543,9 +646,101 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
 </section>
 </div>
 
+<div class="div-line"></div>
+
+<!-- =============================================
+     SHOWREEL SECTION
+     ============================================= -->
+<div class="showreel-section-wrap" id="showreel-sec">
+  <div class="showreel-inner">
+    <div class="showreel-label r">Showreel</div>
+    <h2 class="showreel-title r d1">See me in<br><em>action.</em></h2>
+
+    <div class="showreel-stage r d2">
+      <!-- Orbit rings -->
+      <div class="sr-orbit"></div>
+      <div class="sr-orbit"></div>
+      <div class="sr-orbit"></div>
+
+      <!-- Floating skill badges -->
+      <div class="sr-badge">HTML/CSS</div>
+      <div class="sr-badge">Design</div>
+      <div class="sr-badge">JS</div>
+      <div class="sr-badge">UI/UX</div>
+
+      <!-- Avatar -->
+      <div class="sr-avatar" onclick="openShowreel()">
+        <svg viewBox="0 0 210 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="210" height="230" fill="#fff8f0"/>
+          <g class="sr-body-grp">
+            <!-- Hoodie -->
+            <rect x="45" y="168" width="120" height="72" rx="22" fill="var(--red)"/>
+            <ellipse cx="105" cy="240" rx="62" ry="32" fill="var(--red)"/>
+            <!-- Pocket -->
+            <rect x="83" y="185" width="44" height="24" rx="11" fill="rgba(0,0,0,.15)"/>
+            <!-- Strings -->
+            <line x1="96" y1="175" x2="88" y2="202" stroke="rgba(0,0,0,.18)" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="114" y1="175" x2="122" y2="202" stroke="rgba(0,0,0,.18)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Neck -->
+            <rect x="91" y="155" width="28" height="22" rx="9" fill="#f5b895"/>
+            <!-- Head -->
+            <ellipse cx="105" cy="122" rx="47" ry="47" fill="#f5b895"/>
+            <!-- Fluffy hair -->
+            <g class="sr-hair">
+              <ellipse cx="105" cy="80" rx="48" ry="28" fill="var(--red)"/>
+              <ellipse cx="70" cy="92" rx="24" ry="22" fill="var(--red)"/>
+              <ellipse cx="140" cy="92" rx="24" ry="22" fill="var(--red)"/>
+              <ellipse cx="86" cy="77" rx="22" ry="19" fill="#ff6b5b"/>
+              <ellipse cx="124" cy="77" rx="22" ry="19" fill="#ff6b5b"/>
+              <ellipse cx="105" cy="73" rx="28" ry="18" fill="#ff6b5b"/>
+            </g>
+            <!-- Ears -->
+            <ellipse cx="58" cy="124" rx="11" ry="13" fill="#f5b895"/>
+            <ellipse cx="152" cy="124" rx="11" ry="13" fill="#f5b895"/>
+            <ellipse cx="58" cy="124" rx="6.5" ry="8.5" fill="#f0a070"/>
+            <ellipse cx="152" cy="124" rx="6.5" ry="8.5" fill="#f0a070"/>
+            <!-- Eyes -->
+            <g class="sr-eye-l" style="transform-origin:90px 118px">
+              <ellipse cx="90" cy="118" rx="10" ry="11" fill="white"/>
+              <circle cx="92" cy="119" r="6.5" fill="#1a0d08"/>
+              <circle cx="94" cy="117" r="2.2" fill="white"/>
+            </g>
+            <g class="sr-eye-r" style="transform-origin:120px 118px">
+              <ellipse cx="120" cy="118" rx="10" ry="11" fill="white"/>
+              <circle cx="122" cy="119" r="6.5" fill="#1a0d08"/>
+              <circle cx="124" cy="117" r="2.2" fill="white"/>
+            </g>
+            <!-- Eyebrows -->
+            <path d="M81 106 Q90 100 99 104" stroke="#7a3a10" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <path d="M111 104 Q120 100 129 106" stroke="#7a3a10" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <ellipse cx="105" cy="132" rx="5.5" ry="4.5" fill="#e89060"/>
+            <!-- Smile -->
+            <path d="M90 143 Q105 157 120 143" stroke="var(--red)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Cheeks -->
+            <ellipse cx="74" cy="134" rx="11" ry="8" fill="rgba(255,59,47,.2)"/>
+            <ellipse cx="136" cy="134" rx="11" ry="8" fill="rgba(255,59,47,.2)"/>
+          </g>
+        </svg>
+
+        <!-- Play button -->
+        <button class="sr-play-btn" onclick="openShowreel()">
+          <span class="sr-play-icon">
+            <svg width="10" height="10" viewBox="0 0 10 10">
+              <path d="M2 1.5L8.5 5L2 8.5V1.5Z" fill="white"/>
+            </svg>
+          </span>
+          Play Showreel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SHOWREEL SECTION -->
+
 <div class="contact-section">
 <section class="sec" id="contact-sec">
-  <div class="sec-label" style="color:rgba(255,255,255,.35)" data-n="07">Contact</div>
+  <div class="sec-label" style="color:rgba(255,255,255,.35)" data-n="08">Contact</div>
   <div class="contact-wrap">
     <div class="r">
       <div class="avail"><span class="avail-dot"></span> Available 3 PM – 10 PM IST</div>
@@ -574,27 +769,56 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
 <footer>
   <div class="footer-row">
     <div><div class="footer-brand">Prathamesh Thakur<sup style="color:var(--red);font-size:.55rem">®</sup></div><div class="footer-tagline">"Building ideas into reality, one line at a time."</div></div>
-    <div class="footer-links"><a href="#about-sec">About</a><a href="#projects-sec">Projects</a><a href="#ach-sec">Awards</a><a href="#contact-sec">Contact</a></div>
+    <div class="footer-links"><a href="#about-sec">About</a><a href="#projects-sec">Projects</a><a href="#ach-sec">Awards</a><a href="#showreel-sec">Showreel</a><a href="#contact-sec">Contact</a></div>
     <div class="footer-links"><a href="https://github.com/livedashboardsite" target="_blank">GitHub ↗</a><a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank">LinkedIn ↗</a><a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank">Instagram ↗</a></div>
   </div>
   <span class="footer-mega">DEVELOPER</span>
   <p class="footer-copy">© 2026 Prathamesh Thakur · Ratnagiri, India · Open for opportunities</p>
 </footer>
 
+<!-- Cert modal -->
 <div id="certModal" class="modal-overlay" onclick="closeModalOutside(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
     <div id="modalInner"></div>
   </div>
 </div>
+
+<!-- Showreel modal -->
+<div class="sr-modal-bg" id="showreelModal" onclick="closeShowreelOnBg(event)">
+  <div class="sr-modal-box">
+    <button class="sr-modal-close" onclick="closeShowreel()"><i class="fas fa-times"></i></button>
+    <video src="showreel.mp4" controls autoplay 
+  style="width:100%;height:100%;object-fit:cover;"></video>
+    
+      <div class="sr-ph-title">YOUR SHOWREEL</div>
+      <div class="sr-ph-code">&lt;video src="your-video.mp4" controls autoplay&gt;&lt;/video&gt;</div>
+    </div>
+  </div>
+</div>
+
 <div id="toast" class="toast"></div>
 
 <script>
-const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-6)+'px';cur.style.top=(my-6)+'px'});
-(function aR(){rx+=(mx-rx-20)*.1;ry+=(my-ry-20)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(aR)})();
-document.querySelectorAll('a,button,[onclick],.bcard,.acard-new,.skill-card,.lcard,.stat-cell').forEach(el=>{
+const cur=document.getElementById('cur');
+const playCur=document.getElementById('play-cur');
+const showreelWrap=document.getElementById('showreel-sec');
+let mx=0,my=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+  playCur.style.left=mx+'px';playCur.style.top=my+'px';
+});
+// Show play cursor only over showreel section
+showreelWrap.addEventListener('mouseenter',()=>{
+  cur.style.display='none';
+  playCur.style.display='block';
+});
+showreelWrap.addEventListener('mouseleave',()=>{
+  cur.style.display='block';
+  playCur.style.display='none';
+});
+document.querySelectorAll('a,button,[onclick],.bcard,.acard-new,.skill-card,.lcard,.stat-cell,.sr-avatar').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
 });
@@ -641,7 +865,7 @@ function showCert(id){
 }
 function closeModal(){document.getElementById('certModal').classList.remove('active');document.body.style.overflow='';}
 function closeModalOutside(e){if(e.target.classList.contains('modal-overlay'))closeModal();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeShowreel();}});
 function dl(url,id){const a=document.createElement('a');a.href=url;a.download=id+'.jpg';document.body.appendChild(a);a.click();document.body.removeChild(a)}
 function copyToClipboard(text){
   navigator.clipboard.writeText(text).then(()=>{
@@ -649,6 +873,10 @@ function copyToClipboard(text){
     setTimeout(()=>t.style.display='none',2200);
   }).catch(()=>prompt('Copy:',text));
 }
+// Showreel modal
+function openShowreel(){document.getElementById('showreelModal').classList.add('active');document.body.style.overflow='hidden';}
+function closeShowreel(){document.getElementById('showreelModal').classList.remove('active');document.body.style.overflow='';}
+function closeShowreelOnBg(e){if(e.target===document.getElementById('showreelModal'))closeShowreel();}
 </script>
 </body>
 </html>
