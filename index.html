@@ -84,7 +84,10 @@ nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 3rem;display:flex;align-i
 nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);padding:1rem 3rem}
 .nav-logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--ink);text-decoration:none}
 .nav-logo sup{color:var(--red);font-size:.55rem}
-.nav-menu-wrap{position:relative}
+.nav-menu-wrap{position:relative;display:flex;align-items:center;gap:.75rem}
+/* ── NEW: floating hire-me pill in nav ── */
+.nav-hire{display:inline-flex;align-items:center;gap:.45rem;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);border-radius:100px;padding:.38rem 1rem;font-family:'Cabinet Grotesk',sans-serif;font-weight:800;font-size:.75rem;text-decoration:none;letter-spacing:.04em;transition:all .2s;white-space:nowrap}
+.nav-hire:hover{background:var(--orange);border-color:var(--orange);color:white;transform:translateY(-2px);box-shadow:0 6px 18px rgba(255,107,0,.3)}
 .menu-trigger{display:flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--bg);border:none;border-radius:100px;padding:.45rem 1.2rem;font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s}
 .menu-trigger:hover{background:var(--blue);transform:scale(1.05)}
 .menu-trigger .dots{display:flex;gap:3px;align-items:center}
@@ -96,6 +99,9 @@ nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(20px);border-
 .menu-dropdown a{display:flex;align-items:center;justify-content:space-between;padding:.55rem .85rem;color:rgba(250,250,248,.65);text-decoration:none;font-weight:600;font-size:.88rem;border-radius:10px;transition:all .15s}
 .menu-dropdown a:hover{background:rgba(255,255,255,.09);color:#fff;padding-left:1.15rem}
 .menu-dropdown a .num{font-size:.62rem;opacity:.35}
+/* Freelance menu item highlight */
+.menu-dropdown .freelance-link{background:rgba(255,214,0,.12) !important;color:var(--yellow) !important;margin-top:.35rem;border:1px solid rgba(255,214,0,.25)}
+.menu-dropdown .freelance-link:hover{background:rgba(255,214,0,.22) !important}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 4rem;position:relative;overflow:hidden}
@@ -129,6 +135,12 @@ nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(20px);border-
 .btn-main:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,87,255,.3)}
 .btn-ghost{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--ink);padding:.82rem 2rem;border-radius:100px;font-weight:800;font-size:.85rem;text-decoration:none;transition:all .22s;border:2px solid var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:white;transform:translateY(-3px)}
+/* ── NEW: Freelance / Hire Me button ── */
+.btn-freelance{display:inline-flex;align-items:center;gap:.6rem;background:var(--yellow);color:var(--ink);padding:.82rem 2rem;border-radius:100px;font-weight:800;font-size:.85rem;text-decoration:none;transition:all .22s;border:2px solid var(--ink);position:relative;overflow:hidden}
+.btn-freelance::before{content:'';position:absolute;inset:0;background:var(--orange);opacity:0;transition:opacity .22s}
+.btn-freelance:hover::before{opacity:1}
+.btn-freelance:hover{color:white;border-color:var(--orange);transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,107,0,.35)}
+.btn-freelance span,.btn-freelance i{position:relative;z-index:1}
 .scroll-ind{position:absolute;bottom:2rem;left:3rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fadeIn .8s 1.1s ease forwards}
 .scroll-ind span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .scroll-line{width:50px;height:1.5px;background:rgba(0,0,0,.12);position:relative;overflow:hidden}
@@ -183,6 +195,16 @@ nav.scrolled{background:rgba(250,250,248,.94);backdrop-filter:blur(20px);border-
 .about-card-stack:hover .acard2{transform:rotate(4deg) translate(-6px,-6px)}
 .acard3 img{width:100%;height:85%;object-fit:cover;object-position:top}
 .acard3-label{padding:.7rem 1rem;font-weight:800;font-size:.8rem;color:var(--ink)}
+
+/* ── NEW: Freelance banner in About ── */
+.freelance-banner{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--ink);border:2px solid var(--ink);border-radius:18px;padding:1.1rem 1.4rem;margin-top:1.4rem;text-decoration:none;transition:all .22s;flex-wrap:wrap}
+.freelance-banner:hover{background:#1a1a1a;transform:translateY(-3px);box-shadow:6px 6px 0 rgba(255,214,0,.4)}
+.fb-left{display:flex;align-items:center;gap:.8rem}
+.fb-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s ease infinite;flex-shrink:0}
+.fb-text{font-size:.82rem;font-weight:700;color:white}
+.fb-text span{color:var(--yellow)}
+.fb-btn{background:var(--yellow);color:var(--ink);border-radius:100px;padding:.32rem .9rem;font-size:.72rem;font-weight:800;letter-spacing:.04em;white-space:nowrap;transition:background .2s}
+.freelance-banner:hover .fb-btn{background:var(--orange);color:white}
 
 /* SKILLS */
 .skills-section{background:var(--s2)}
@@ -399,11 +421,12 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
 }
 @media(max-width:900px){
   nav,nav.scrolled{padding:1.2rem 1.5rem}
+  .nav-hire{display:none}
   #hero{padding:7rem 1.5rem 3rem}
   .hero-title{font-size:clamp(2.8rem,10vw,5rem)}
   .hero-photo-frame{display:none}
   .hero-sub{font-size:.95rem;max-width:100%}
-  .btn-main,.btn-ghost{padding:.72rem 1.5rem;font-size:.82rem}
+  .btn-main,.btn-ghost,.btn-freelance{padding:.72rem 1.5rem;font-size:.82rem}
   .sec{padding:5rem 1.5rem}
   .sec-title{font-size:clamp(2rem,6vw,3.5rem);margin-bottom:2.5rem}
   .about-grid{grid-template-columns:1fr;gap:3rem}
@@ -457,7 +480,7 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
   .hero-title{font-size:clamp(2.4rem,13vw,4rem)}
   .hero-title .line2{-webkit-text-stroke:2px var(--ink)}
   .hero-sub{font-size:.9rem}
-  .btn-main,.btn-ghost{padding:.65rem 1.2rem;font-size:.78rem;gap:.4rem}
+  .btn-main,.btn-ghost,.btn-freelance{padding:.65rem 1.2rem;font-size:.78rem;gap:.4rem}
   .scroll-ind{left:1.2rem;bottom:1.5rem}
   .marquee-item{font-size:.75rem}
   .sec{padding:4rem 1.2rem}
@@ -512,11 +535,12 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
   .modal-box{padding:1.5rem;border-radius:18px}
   .modal-cert-title{font-size:1.1rem}
   .sr-modal-box{border-radius:14px}
+  .freelance-banner{flex-direction:column;align-items:flex-start;gap:.7rem}
 }
 @media(max-width:400px){
   .hero-title{font-size:clamp(2.1rem,14vw,3rem)}
   .hero-cta-row{flex-direction:column;gap:.5rem}
-  .btn-main,.btn-ghost{width:100%;justify-content:center;padding:.65rem 1rem}
+  .btn-main,.btn-ghost,.btn-freelance{width:100%;justify-content:center;padding:.65rem 1rem}
   .sec{padding:3.5rem 1rem}
   .sec-title{font-size:clamp(1.6rem,12vw,2.4rem)}
   .contact-big{font-size:clamp(1.9rem,13vw,2.8rem)}
@@ -584,6 +608,10 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
 <nav id="navbar">
   <a href="#" class="nav-logo">PT<sup>®</sup></a>
   <div class="nav-menu-wrap">
+    <!-- ★ NEW: Hire Me pill always visible in nav -->
+    <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" class="nav-hire">
+      <i class="fas fa-briefcase"></i> Hire Me ↗
+    </a>
     <button class="menu-trigger" onclick="toggleMenu()">
       <div class="dots"><span></span><span></span><span></span></div>
       Menu
@@ -597,6 +625,8 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
       <a href="#lead-sec" onclick="closeMenu()">Leadership <span class="num">06</span></a>
       <a href="#showreel-sec" onclick="closeMenu()">Showreel <span class="num">07</span></a>
       <a href="#contact-sec" onclick="closeMenu()">Contact <span class="num">08</span></a>
+      <!-- ★ NEW: Freelance item in dropdown -->
+      <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" onclick="closeMenu()" class="freelance-link">⚡ Freelance Site ↗ <span class="num"></span></a>
     </div>
   </div>
 </nav>
@@ -615,6 +645,8 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
   <div class="hero-cta-row">
     <a href="#projects-sec" class="btn-main"><i class="fas fa-arrow-down"></i> See My Work</a>
     <a href="#contact-sec" class="btn-ghost"><i class="fas fa-paper-plane"></i> Let's Talk</a>
+    <!-- ★ NEW: Freelance CTA in hero -->
+    <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" class="btn-freelance"><span><i class="fas fa-briefcase"></i> Hire Me ↗</span></a>
   </div>
   <div class="hero-photo-frame">
     <div class="photo-blob-wrap">
@@ -660,8 +692,18 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
         <p>Co-founder & UI/UX Designer at SWARLY, a music discovery platform for India. Award-winning developer with recognition at school, screening & district levels.</p>
       </div>
       <div class="about-tags r d2">
-        <span class="tag t-red">Web Developer</span><span class="tag t-green">Unity Dev</span><span class="tag t-blue">UI/UX Designer</span><span class="tag t-purple">Hardware Builder</span><span class="tag t-orange">Video Editor</span><span class="tag">Freelancer</span>
+        <span class="tag t-red">Web Developer</span><span class="tag t-green">Unity Dev</span><span class="tag t-blue">UI/UX Designer</span><span class="tag t-purple">Hardware Builder</span><span class="tag t-orange">Video Editor</span>
+        <!-- ★ NEW: Clickable Freelancer tag -->
+        <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" style="text-decoration:none"><span class="tag" style="background:var(--yellow);border-color:#c9a800;color:var(--ink);cursor:pointer">⚡ Freelancer ↗</span></a>
       </div>
+      <!-- ★ NEW: Freelance banner in About -->
+      <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" class="freelance-banner r d3">
+        <div class="fb-left">
+          <span class="fb-dot"></span>
+          <span class="fb-text">Open for freelance work — <span>EmotionDevelopers</span></span>
+        </div>
+        <span class="fb-btn">Visit Site ↗</span>
+      </a>
       <div class="about-stats r d3">
         <div class="stat-cell"><div class="stat-num">3<span>×</span></div><div class="stat-lab">District Awards</div></div>
         <div class="stat-cell"><div class="stat-num">97<span>#</span></div><div class="stat-lab">AWS National Rank</div></div>
@@ -829,13 +871,23 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
       <div class="avail"><span class="avail-dot"></span> Available 7 PM – 10 PM IST</div>
       <h2 class="contact-big">Let's<br><span class="c1">build</span><br><span class="c2">something</span><br><span class="c3">great.</span></h2>
       <p class="contact-sub">Open to freelance, collabs, and internships. Have an idea? Let's talk.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center">
         <a href="https://github.com/livedashboardsite" target="_blank" style="color:rgba(255,255,255,.45);font-size:.78rem;font-weight:700;border-bottom:1px solid rgba(255,255,255,.2);text-decoration:none;padding-bottom:2px">GitHub ↗</a>
         <span style="color:rgba(255,255,255,.2)">·</span>
         <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank" style="color:rgba(255,255,255,.45);font-size:.78rem;font-weight:700;border-bottom:1px solid rgba(255,255,255,.2);text-decoration:none;padding-bottom:2px">LinkedIn ↗</a>
+        <span style="color:rgba(255,255,255,.2)">·</span>
+        <!-- ★ NEW: Freelance link in contact header links -->
+        <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" style="color:var(--yellow);font-size:.78rem;font-weight:700;border-bottom:1px solid rgba(255,214,0,.4);text-decoration:none;padding-bottom:2px">⚡ Freelance ↗</a>
       </div>
     </div>
     <div class="contact-links r d2">
+      <!-- ★ NEW: Freelance row — first/most prominent in contact list -->
+      <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" class="cl-row" style="border-color:rgba(255,214,0,.4);background:rgba(255,214,0,.08)">
+        <span class="cl-icon" style="color:var(--yellow)"><i class="fas fa-briefcase"></i></span>
+        <span class="cl-lab" style="color:rgba(255,214,0,.55)">Freelance</span>
+        <span class="cl-val" style="color:var(--yellow);font-weight:700">EmotionDevelopers ↗</span>
+        <i class="fas fa-arrow-right cl-arr" style="color:var(--yellow)"></i>
+      </a>
       <a href="mailto:prathameshthakur539@gmail.com" class="cl-row"><span class="cl-icon"><i class="fas fa-envelope"></i></span><span class="cl-lab">Email</span><span class="cl-val">prathameshthakur539@gmail.com</span><i class="fas fa-arrow-right cl-arr"></i></a>
       <a href="tel:+917745070380" class="cl-row"><span class="cl-icon"><i class="fas fa-phone"></i></span><span class="cl-lab">Phone</span><span class="cl-val">+91 7745070380</span><i class="fas fa-arrow-right cl-arr"></i></a>
       <a href="https://github.com/livedashboardsite" target="_blank" class="cl-row"><span class="cl-icon"><i class="fab fa-github"></i></span><span class="cl-lab">GitHub</span><span class="cl-val">livedashboardsite</span><i class="fas fa-arrow-right cl-arr"></i></a>
@@ -850,8 +902,20 @@ footer{background:var(--ink);overflow:hidden;padding:3rem 3rem 0;border-top:1px 
 <footer>
   <div class="footer-row">
     <div><div class="footer-brand">Prathamesh Thakur<sup style="color:var(--red);font-size:.55rem">®</sup></div><div class="footer-tagline">"Building ideas into reality, one line at a time."</div></div>
-    <div class="footer-links"><a href="#about-sec">About</a><a href="#projects-sec">Projects</a><a href="#ach-sec">Awards</a><a href="#showreel-sec">Showreel</a><a href="#contact-sec">Contact</a></div>
-    <div class="footer-links"><a href="https://github.com/livedashboardsite" target="_blank">GitHub ↗</a><a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank">LinkedIn ↗</a><a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank">Instagram ↗</a></div>
+    <div class="footer-links">
+      <a href="#about-sec">About</a>
+      <a href="#projects-sec">Projects</a>
+      <a href="#ach-sec">Awards</a>
+      <a href="#showreel-sec">Showreel</a>
+      <a href="#contact-sec">Contact</a>
+      <!-- ★ NEW: Freelance in footer nav -->
+      <a href="https://livedashboardsite.github.io/Emotiondevlopers/" target="_blank" rel="noopener" style="color:var(--yellow) !important">⚡ Freelance ↗</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/livedashboardsite" target="_blank">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/prathamesh-thakur-5728162b2" target="_blank">LinkedIn ↗</a>
+      <a href="https://instagram.com/prathamesh_thakur_emotion" target="_blank">Instagram ↗</a>
+    </div>
   </div>
   <span class="footer-mega">DEVELOPER</span>
   <p class="footer-copy">© 2026 Prathamesh Thakur · Ratnagiri, India · Open for opportunities</p>
@@ -1003,7 +1067,7 @@ function copyToClipboard(text){
   }).catch(()=>prompt('Copy:',text));
 }
 
-/* SHOWREEL — tap/click avatar → immediate autoplay */
+/* SHOWREEL */
 function openShowreel(){
   const modal=document.getElementById('showreelModal');
   const video=document.getElementById('showreelVideo');
